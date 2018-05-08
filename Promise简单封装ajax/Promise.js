@@ -90,4 +90,3 @@ getUserInfo.then(function(ResultJson){
 Promise.all([getUserInfo,getDataList]).then(function([ResultJson1,ResultJson2]){
     //这里写等这两个ajax都成功返回数据才执行的业务逻辑
 })
-复制代码
