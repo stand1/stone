@@ -1,6 +1,6 @@
 <template>
   <div id='app'>
-    <button type='button' id='export-table' @click='onexport'>下载</button>
+    <button type='button' @click='getExcle'>下载</button>
 	<div id='table_out'>
 	  <table>
 	    <tr>
@@ -29,13 +29,13 @@
       }
     },
 	methods:{
-	    onexport: function (evt) {
+	    getExcle: function (evt) {
                 let wb = XLSX.utils.table_to_book(document.getElementById("table_out"));
                 let wbout = XLSX.write(wb,{bookType:'xlsx',type:'binary'});
 				//shetjs.xlsx 为导出Excel表 的表名 可自定义
-                saveAs(new Blob([this.s2ab(wbout)],{type:'application/octet-stream'}),"shetjs.xlsx")
+                saveAs(new Blob([this.DCexcel(wbout)],{type:'application/octet-stream'}),"shetjs.xlsx")
             },
-            s2ab: function (s) {
+            DCexcel: function (s) {
                 if(typeof ArrayBuffer !== "undefined"){
                     let buf = new ArrayBuffer(s.length)
                     let view = new Uint8Array(buf);
