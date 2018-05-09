@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分类管理</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="css/bootstrap.min14ed.css?v=3.3.6" rel="stylesheet">
+    <link href="css/font-awesome.min93e3.css?v=4.4.0" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/style.min862f.css?v=4.1.0" rel="stylesheet">
+    <link href="css/sweetalert.css" rel="stylesheet">
+    <link href="css/mystyle.css" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper wrapper-content animated fadeInRight" id="main">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-group ibox">
+                <div class="input-group">
+                    <input type="text" class="form-control w300" v-model="searchTxt" placeholder="请输入搜索内容">
+                    <button type="button" class="btn btn-primary ml10" @click="onexport">搜索</button>
+                    <button type="button" class="btn btn-warning ml10" @click="goAdd()">新建</button>
+                </div>
+            </div>
+            <table class="table table-striped table-bordered table-hover dataTables-example" ref="tableM" id="table_out">
+                <thead>
+                <tr>
+                    <th>分类ID</th>
+                    <th>分类名</th>
+                    <th>分类排序</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="gradeX" v-for="item in userList">
+                    <td>{{item.category_id}}</td>
+                    <td>{{item.name}}</td>
+                    <td>{{item.orderid}}</td>
+                    <td><a :href="'BJcategories.html?category_id='+item.category_id">编辑</a></td>
+                </tr>
+
+                <tr :class="[noData==0?'hide':'']">
+                    <td colspan="7" class="text-center">暂无数据</td>
+                </tr>
+                </tbody>
+            </table>
+            <ul class="pagination pull-right" style="margin: 0;">
+                <li class="paginate_button previous" aria-controls="DataTables_Table_0" tabindex="0" id="DataTables_Table_0_previous"><a href="#" onclick="prePage()">上一页</a></li>
+                <li :class="['paginate_button',index==currPage-1?'active':'']" aria-controls="DataTables_Table_0" tabindex="0" v-for="(item,index) in userList.pageCount"><a href="#" onclick="goPage(this)">{{index+1}}</a></li>
+                <li class="paginate_button next" aria-controls="DataTables_Table_0" tabindex="0" id="DataTables_Table_0_next"><a href="#" onclick="nextPage()">下一页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js?v=2.1.4"></script>
+<script src="js/bootstrap.min.js?v=3.3.6"></script>
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="js/plugins/layer/layer.min.js"></script>
+<script src="js/hplus.min.js?v=4.1.0"></script>
+<script type="text/javascript" src="js/contabs.min.js"></script>
+<script src="js/plugins/pace/pace.min.js"></script>
+<script src="js/plugins/sweetalert.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/saas.framework.js"></script>
+<script src="js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+<script src="http://oss.sheetjs.com/js-xlsx/xlsx.full.min.js"></script>
+<script>
+    $(function(){
+       vum.getUserList()
+    })
+
+    var vum = new Vue({
+        el:'#main',
+        data:{
+            userList:'',
+            category:[],
+            allPage:0,
+            currPage:1,
+            searchTxt:'',
+            noData:0
+        },
+        methods: {
+            //模板列表
+            getUserList: function (page, commany) {
+                var param = {}
+                var accessToken = publicObj.getToken();
+                if (!accessToken) {
+                    swal({title: "温馨提示", text: "请您先登录！"})
+                    return false;
+                }
+                // param.accessToken = accessToken
+                param.key = commany || ''
+                // param.PageIndex = page || 1
+                // param.PageSize = 20
+                $saas.ajax.getJSON("/office_template/GetcategoryList", param, function (data) {
+                    if (data.errcode == 0) {
+                        var userList = data.data;
+                        vum.userList = userList;
+                        // vum.allPage = userList.pageCount;
+                        // vum.currPage = userList.page
+                        if (userList.length == 0) {
+                            vum.noData = 1
+                        } else {
+                            vum.noData = 0
+                        }
+                    }
+                })
+            },
+            formatCat:function(id){
+                var catName = ''
+                var category = vum.category
+                for(var i=0;i<category.length;i++){
+                    if(category[i].id == id){
+                        catName = category[i].industryname
+                        break
+                    }
+                }
+                return catName
+            },
+            formatStatus:function(status){
+                if(status == 0){
+                    return '启用'
+                }else{
+                    return '关闭'
+                }
+            },
+            //搜索
+            doSearch:function(){
+                // this.$refs.table.exportCsv({
+                //     filename: '原始数据'
+                // })
+            },
+            // 去新建模板
+            goAdd: function () {
+                window.location.href = "BJcategories.html"
+            },
+            onexport: function (evt) {
+                let wb = XLSX.utils.table_to_book(document.getElementById("table_out"));
+                let wbout = XLSX.write(wb,{bookType:'xlsx',type:'binary'});
+                saveAs(new Blob([this.s2ab(wbout)],{type:'application/octet-stream'}),"shetjs.xlsx")
+            },
+            s2ab: function (s) {
+                if(typeof ArrayBuffer !== "undefined"){
+                    let buf = new ArrayBuffer(s.length)
+                    let view = new Uint8Array(buf);
+                    for(let i=0;i!=s.length;i++) view[i] = s.charCodeAt(i) & 0xFF;
+                    return buf
+                }else {
+                    let buf = new Array(s.length);
+                    for(let i=0;i!=s.length;i++) buf[i] = s.charCodeAt(i) & 0xFF;
+                    return buf
+                }
+            }
+        }
+    })
+    function goPage(it){
+        var thisPage = parseInt($(it).text())
+        vum.getUserList(thisPage);
+        $('.pagination li').not('.previous,.next').removeClass('active');
+        $(it).addClass('active')
+    }
+
+    function prePage(){
+        var currPage = vum.currPage
+        if(currPage>1){
+            currPage -= 1
+            vum.getUserList(currPage);
+        }
+    }
+    function nextPage(){
+        var currPage = vum.currPage
+        var allPage = vum.allPage
+        if(currPage<allPage){
+            currPage += 1
+            vum.getUserList(currPage);
+        }
+    }
+</script>
+</body>
+</html>
