@@ -10,7 +10,7 @@ class App extends Component{
     num: 0
   }
   componentDidMount(){
-    this.setState({msg: '你好，世界！'})
+    this.getData()
   }
   render () {
     return (
@@ -21,7 +21,7 @@ class App extends Component{
           <div className="App-mian">
             <img src={imgUrl} alt="测试"/>
             <p>{this.state.msg}</p>
-            <Child name="你好，世界"></Child>
+            <Child name="Hello world"></Child>
             <p>{this.state.num}</p>
             <button onClick={this.add}>增加</button>
             <button onClick={this.minus}>减少</button>
@@ -37,6 +37,9 @@ class App extends Component{
   }
   minus = () => {
     this.setState(prevState => ({ num: --prevState.num }));
+  }
+  getData = () => {
+      this.setState({msg: '你好，世界！' })
   }
 }
 
@@ -56,6 +59,5 @@ class App extends Component{
 //       </div>
 //   );
 // }
-
 
 export default App;
