@@ -3,8 +3,7 @@ import logo from './logo.svg';
 import imgUrl from  './img/ceshi.jpg'
 import './App.css';
 import Child from './child'
-// import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { Link, NavLink} from 'react-router-dom';
+// import { Link, NavLink} from 'react-router-dom';
 
 class App extends Component{
   state = {
@@ -25,8 +24,6 @@ class App extends Component{
             <p>{this.state.msg}</p>
             <Child name="Hello world"></Child>
             <p>{this.state.num}</p>
-            {/*<Link  to="/about"/>*/}
-            {/*<NavLink  to="/about"/>*/}
             <button onClick={this.add}>增加</button>
             <button onClick={this.minus}>减少</button>
           </div>
