@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from "./logo.svg";
-import imgUrl from "./img/ceshi.jpg";
 import Child from "./child";
+// import { Route, Link } from "react-router-dom";
 
 class About extends Component{
     state = {

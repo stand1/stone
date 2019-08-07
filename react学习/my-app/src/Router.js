@@ -1,17 +1,16 @@
-//引入react jsx写法的必须
-import React from 'react';
-//引入需要用到的页面组件
 import index from './App';
 import About from './about';
-//引入一些模块
-import { BrowserRouter as Router, Route} from "react-router-dom";
 
-function router(){
-    return (
-        <Router>
-            <Route path="/index" component={index} />
-            <Route path="/about" component={About} />
-        </Router>);
-}
+let router = [
+    {
+        path: '/',//首页默认加载的页面
+        componentName: index,
+        exact: true //是否为严格模式
+    },
+    {
+        path: '/about',//后面是传递的参数id
+        componentName: About
+    }
+];
 
 export default router;

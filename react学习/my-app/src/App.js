@@ -3,7 +3,9 @@ import logo from './logo.svg';
 import imgUrl from  './img/ceshi.jpg'
 import './App.css';
 import Child from './child'
-// import { Link, NavLink} from 'react-router-dom';
+// eslint-disable-next-line
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import router from './Router'
 
 class App extends Component{
   state = {
@@ -15,24 +17,27 @@ class App extends Component{
   }
   render () {
     return (
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-          </header>
-          <div className="App-mian">
-            <img src={imgUrl} alt="测试"/>
-            <p>{this.state.msg}</p>
-            <Child name="Hello world"></Child>
-            <p>{this.state.num}</p>
-            <button onClick={this.add}>增加</button>
-            <button onClick={this.minus}>减少</button>
-          </div>
-          <footer className='App-footer'>
-            <div>
-                <p>footer</p>
+        <Router>
+            <div className="App">
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                </header>
+                <div className="App-mian">
+                    <img src={imgUrl} alt="测试"/>
+                    <p>{this.state.msg}</p>
+                    <Child name="Hello world"></Child>
+                    <p>{this.state.num}</p>
+                    <Link to='/about'><p>about</p></Link>
+                    <button onClick={this.add}>增加</button>
+                    <button onClick={this.minus}>减少</button>
+                </div>
+                <footer className='App-footer'>
+                    <div>
+                        <p>footer</p>
+                    </div>
+                </footer>
             </div>
-          </footer>
-        </div>
+        </Router>
     );
   }
   add = () => {
@@ -45,22 +50,5 @@ class App extends Component{
       this.setState({msg: '你好，世界！' })
   }
 }
-
-// let App = () => {
-//   return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//         </header>
-//         <div className="App-mian">
-//           <img src={imgUrl} alt="测试"/>
-//           <p>Hello world</p>
-//         </div>
-//         <footer className='App-footer'>
-//           <div>footer</div>
-//         </footer>
-//       </div>
-//   );
-// }
 
 export default App;
