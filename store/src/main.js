@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import store from './store/store'
 
+// 数字滚动插件 点击左右图片左右移动插件
 import scroll from 'vue-seamless-scroll'
 Vue.use(scroll)
 
