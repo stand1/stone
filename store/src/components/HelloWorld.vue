@@ -23,7 +23,8 @@ export default {
   data () {
     return {
       msg: 'Hello World',
-      listData: [1, 2, 3, 4, 5, 6, 7, 8]
+      listData: [1, 2, 3, 4, 5, 6, 7, 8],
+      dataMsg: 'Hello World'
     }
   },
   methods: {
