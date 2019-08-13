@@ -4,7 +4,8 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  count: 0
+  count: 0,
+  msgs: 'Hello World'
 }
 
 const mutations = {
@@ -13,6 +14,10 @@ const mutations = {
   },
   mutationsReduceCount (state) {
     return (state.count--)
+  },
+  mutationChangeMsgs (state) {
+    state.msgs = state.msgs.split('').reverse().join('')
+    return state.msgs
   }
 }
 
@@ -22,12 +27,18 @@ const actions = {
   },
   actionsReduceCount ({ commit }) {
     return commit('mutationsReduceCount')
+  },
+  actionsChangeMsgs ({ commit }) {
+    return commit('mutationChangeMsgs')
   }
 }
 
 const getters = {
   getterCount (state) {
     return state.count
+  },
+  getterMsgs (state) {
+    return state.msgs
   }
 }
 

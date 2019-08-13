@@ -6,6 +6,9 @@
       <button @click="handleActionsAdd">异步增加</button>
       <button @click="handleActionsReduce">异步减少</button>
     </div>
+    <div>
+      <p @click="changeMsgs">{{msgs}}</p>
+    </div>
     <vue-seamless-scroll :class-option="optionSwitch" class="seamless-warp3">
       <span slot="left-switch" class="left-arrow"></span>
       <span slot="right-switch" class="right-arrow"></span>
@@ -23,8 +26,7 @@ export default {
   data () {
     return {
       msg: 'Hello World',
-      listData: [1, 2, 3, 4, 5, 6, 7, 8],
-      dataMsg: 'Hello World'
+      listData: [1, 2, 3, 4, 5, 6, 7, 8]
     }
   },
   methods: {
@@ -34,12 +36,14 @@ export default {
     // }),
     ...mapActions({
       handleActionsAdd: 'actionsAddCount',
-      handleActionsReduce: 'actionsReduceCount'
+      handleActionsReduce: 'actionsReduceCount',
+      changeMsgs: 'actionsChangeMsgs'
     })
   },
   computed: {
     ...mapGetters({
-      count: 'getterCount'
+      count: 'getterCount',
+      msgs: 'getterMsgs'
     }),
     optionSwitch () {
       return {
