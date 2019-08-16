@@ -41,10 +41,10 @@ export default {
     })
   },
   computed: {
-    // ...mapGetters({
-    //   count: 'getterCount'
-    //   msgs: 'getterMsgs'
-    // }),
+    ...mapGetters({
+      // count: 'getterCount'
+      msgs: 'getterMsgs'
+    }),
     optionSwitch () {
       return {
         autoPlay: false,
@@ -53,10 +53,10 @@ export default {
     },
     count () {
       return this.$store.getters.getterCount
-    },
-    msgs () {
-      return this.$store.getters.getterMsgs()
     }
+    // msgs () {
+    //   return this.$store.getters.getterMsgs()
+    // }
   }
 }
 </script>
