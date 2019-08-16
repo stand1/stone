@@ -41,19 +41,22 @@ export default {
     })
   },
   computed: {
-    ...mapGetters({
-      count: 'getterCount',
-      msgs: 'getterMsgs'
-    }),
+    // ...mapGetters({
+    //   count: 'getterCount'
+    //   msgs: 'getterMsgs'
+    // }),
     optionSwitch () {
       return {
         autoPlay: false,
         switchSingleStep: 140
       }
+    },
+    count () {
+      return this.$store.getters.getterCount
+    },
+    msgs () {
+      return this.$store.getters.getterMsgs()
     }
-    // count () {
-    //   return this.$store.getters.getterCount
-    // }
   }
 }
 </script>
