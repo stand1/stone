@@ -51,7 +51,9 @@ function Ajax(type, url, data, success, failed){
 // 测试调用
 var sendData = {name:'asher',sex:'male'};
 Ajax('get', 'data/data.html', sendData, function(data){
+    // 成功回调
     console.log(data);
 }, function(error){
+    // 失败回调
     console.log(error);
 });
