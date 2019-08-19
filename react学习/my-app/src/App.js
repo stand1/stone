@@ -4,7 +4,7 @@ import imgUrl from  './img/ceshi.jpg'
 import './App.css';
 import Child from './child'
 // eslint-disable-next-line
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 // import router from './Router'
 
 class App extends Component{
@@ -27,7 +27,6 @@ class App extends Component{
                     <p>{this.state.msg}</p>
                     <Child name="Hello world"></Child>
                     <p>{this.state.num}</p>
-                    <Link to='/about'><p>about</p></Link>
                     <button onClick={this.add}>增加</button>
                     <button onClick={this.minus}>减少</button>
                 </div>
@@ -47,7 +46,7 @@ class App extends Component{
     this.setState(prevState => ({ num: --prevState.num }));
   }
   getData = () => {
-      this.setState({msg: '你好，世界！' })
+    this.setState({msg: '你好，世界！' });
   }
 }
 
