@@ -9,6 +9,9 @@
     <div>
       <p @click="changeMsgs">{{msgs}}</p>
     </div>
+    <div class="test">
+      <img src="" alt="">
+    </div>
     <vue-seamless-scroll :class-option="optionSwitch" class="seamless-warp3">
       <span slot="left-switch" class="left-arrow"></span>
       <span slot="right-switch" class="right-arrow"></span>
