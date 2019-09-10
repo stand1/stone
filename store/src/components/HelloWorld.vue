@@ -8,6 +8,7 @@
     </div>
     <div>
       <p @click="changeMsgs">{{msgs}}</p>
+      <p @click="getVals(count)">{{val}}</p>
     </div>
     <div class="test">
       <img src="" alt="">
@@ -40,13 +41,15 @@ export default {
     ...mapActions({
       handleActionsAdd: 'actionsAddCount',
       handleActionsReduce: 'actionsReduceCount',
-      changeMsgs: 'actionsChangeMsgs'
+      changeMsgs: 'actionsChangeMsgs',
+      getVals: 'actionsGetVal'
     })
   },
   computed: {
     ...mapGetters({
       // count: 'getterCount'
-      msgs: 'getterMsgs'
+      msgs: 'getterMsgs',
+      val: 'getterVal'
     }),
     optionSwitch () {
       return {

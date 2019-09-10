@@ -5,7 +5,8 @@ Vue.use(Vuex)
 
 const state = {
   count: 0,
-  msgs: 'Hello World'
+  msgs: 'Hello World',
+  val: 'aaaa'
 }
 
 const mutations = {
@@ -18,6 +19,11 @@ const mutations = {
   mutationChangeMsgs (state) {
     state.msgs = state.msgs.split('').reverse().join('')
     return state.msgs
+  },
+  mutationGetVal (state, str) {
+    console.log(str)
+    state.val = str
+    return state.val
   }
 }
 
@@ -30,6 +36,9 @@ const actions = {
   },
   actionsChangeMsgs ({ commit }) {
     return commit('mutationChangeMsgs')
+  },
+  actionsGetVal ({commit}, str) {
+    return commit('mutationGetVal', str)
   }
 }
 
@@ -39,6 +48,9 @@ const getters = {
   },
   getterMsgs (state) {
     return state.msgs
+  },
+  getterVal (state) {
+    return state.val
   }
 }
 
