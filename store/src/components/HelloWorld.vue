@@ -30,7 +30,7 @@ export default {
   data () {
     return {
       msg: 'Hello World',
-      listData: [1, 2, 3, 4, 5, 6, 7, 8]
+      listData: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     }
   },
   methods: {
@@ -129,7 +129,7 @@ a {
     transform: rotate(-45deg);
   }
   ul.item {
-    width: 140px * 8;
+    width: 140px * 10;
     li {
       float: left;
       width: 120px;
