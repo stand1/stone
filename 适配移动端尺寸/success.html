@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration successful</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="./css/uls.css">
+    <link rel="stylesheet" href="./css/success.css">
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/axios.js"></script>
+    <script type="text/javascript">
+        (function(e,t){var i=document,n=window;var l=i.documentElement;var r,a;var d,o=document.createElement("style");var s;function m(){var i=l.getBoundingClientRect().width;if(!t){t=540}if(i>t){i=t}var n=i*100/e;o.innerHTML="html{font-size:"+n+"px;}"}r=i.querySelector('meta[name="viewport"]');a="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=no,viewport-fit=cover";if(r){r.setAttribute("content",a)}else{r=i.createElement("meta");r.setAttribute("name","viewport");r.setAttribute("content",a);if(l.firstElementChild){l.firstElementChild.appendChild(r)}else{var c=i.createElement("div");c.appendChild(r);i.write(c.innerHTML);c=null}}m();if(l.firstElementChild){l.firstElementChild.appendChild(o)}else{var c=i.createElement("div");c.appendChild(o);i.write(c.innerHTML);c=null}n.addEventListener("resize",function(){clearTimeout(s);s=setTimeout(m,300)},false);n.addEventListener("pageshow",function(e){if(e.persisted){clearTimeout(s);s=setTimeout(m,300)}},false);if(i.readyState==="complete"){i.body.style.fontSize="16px"}else{i.addEventListener("DOMContentLoaded",function(e){i.body.style.fontSize="16px"},false)}})(750,750);
+    </script>
+</head>
+<body>
+<div class="mian" id="mian">
+    <div class="header">
+        <span>Registration Successful</span>
+    </div>
+    <div class="center">
+        <div class="txt">
+            <h4>Congratulations！</h4>
+            <p>You have successfully received the exchange code of the South Africa 2019  International Consumer Electronics Expo. You can get the exchange code through the exchange code. Hope to leave you an unforgettable exhibition experience.</p>
+        </div>
+        <div class="code">
+            <div class="codeBox">
+               <h6>Your Code：{{code}}</h6>
+               <img :src="imgCode" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <img src="./img//sucFooter.png" alt="">
+    </div>
+</div>
+
+
+<script>
+    var vm = new Vue({
+        el: '#mian',
+        data: {
+            code: '',
+            imgCode: ''
+        },
+        mounted () {
+            this.code = this.GetUrlParam('code')
+            this.getData()
+        },
+        methods: {
+            GetUrlParam (paramName) {
+                var paramValue = "", isFound = !1;
+                if (window.location.search.indexOf("?") == 0 && window.location.search.indexOf("=") > 1) {
+                   arrSource = unescape(window.location.search).substring(1, window.location.search.length).split("&"), i = 0;
+                   while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++
+                }
+                return paramValue == "" && (paramValue = null), paramValue
+            },
+            getData () {
+                var that = this
+                var pamer = {}
+                pamer.pre_code = this.code
+                axios.post('http://47.112.140.232:5050/index.php/web/Api/getSiteQrcode', pamer).then(function(res) {
+                    that.imgCode = res.data.data
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>
