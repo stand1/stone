@@ -1,0 +1,104 @@
+<!--pages/submitOrders/submitOrders.wxml-->
+<view class="orders">
+ <view class="ordersBox">
+  <!-- 地址信息 -->
+  <view class="ordersBoxAddress">
+   <view class="title">
+    <text>公司信息</text>
+    <text class="changes" wx:if="{{datas.is_userinfo == 1}}" bindtap="chengeInfo">选择地址</text>
+   </view>
+   <view class="add" wx:if="{{datas.is_userinfo == 2}}" bindtap="chengeInfo">
+    <view class="addBtn"><text class="addIcon">+</text><text>添加地址</text></view>
+   </view>
+   <view class="address" wx:if="{{datas.is_userinfo == 1}}">
+    <view><text>公司名称</text><text>{{datas.userinfo.company_name}}</text></view>
+    <view>
+     <text decode="{{true}}" space="{{true}}">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</text>
+     <text>{{datas.userinfo.full_name}}</text>
+    </view>
+    <view><text>联系方式</text><text>{{datas.userinfo.mobile_number}}</text></view>
+   </view>
+  </view>
+  <!-- 订单信息 -->
+  <view class="ordersBoxMsg">
+   <view class="title"><text>{{datas.exhibition_name}}</text></view>
+   <view class="timers">
+    <text class="timersTitle">开展时间：</text>
+    <text>{{datas.opening_time}}</text>
+   </view>
+   <view class="txtBox">
+    <view><text>预订展区</text><text>{{datas.area_name}}</text></view>
+    <view><text>展位面积</text><text>{{datas.acreage_name}}</text></view>
+    <view><text>开口数量</text><text>{{datas.open_num}}</text></view>
+   </view>
+  </view>
+  <!-- 附加信息 -->
+  <view class="ordersBoxAddress ordersBoxInfo">
+   <view class="title"><text>附加信息</text></view>
+   <view class="txtBox">
+    <view class="txtBoxItem">
+      <text>签证办理</text>
+      <switch checked="{{datas.is_visa}}" bindchange="changeVisa"/>
+    </view>
+    <view class="txtBoxItem">
+      <text>是否增租</text>
+      <switch checked="{{datas.is_relet}}" bindchange="changeRelet"/>
+    </view>
+   </view>
+  </view>
+  <!-- 口令 -->
+  <view class="command" wx:if="{{datas.is_coupon == 1}}">
+   <view class="title" bindtap="openCommand"><text>口令</text><text class="titleIcon">?</text></view>
+   <view class="commandBox">
+    <text>优惠口令</text>
+    <text class="verify" bindtap="openVerify" wx:if="{{showVerifys == 1}}">验证口令</text>
+    <text class="verifyed" wx:if="{{showVerifys == 2}}">已验证</text>
+   </view>
+  </view>
+  <!-- 预订说明   -->
+  <view class="explain">
+   <view class="explainIcon" bindtap="changeAgree"><icon type="success_no_circle" size="12" wx:if="{{agree}}"></icon></view>
+   <view bindtap="description"><text>我已同意并阅读</text><text class="expColor">《亚东国际展位预订说明》</text></view>
+  </view>
+ </view>
+ <!-- btn -->
+ <view class="btnBox">
+  <view class="money"><text>金额：</text><text class="moneyColor">￥ {{price}}  元</text></view>
+  <view class="btn" bindtap="sub">提交</view>
+ </view>
+</view>
+<!-- 口令弹层 -->
+<wux-popup position="bottom" visible="{{ showCommand }}" bind:close="onCommand">
+ <view class="modleCommand">
+  <view class="title">口令说明</view>
+  <view class="txtCon">
+   <view class="txtConL"><text>!</text></view>
+   <view class="txtConR">
+    <view>
+     <text>1、口令是由系统通过一串数字生成的密钥,每个展会生成不同的领口,验证口令成功后可用于抵扣预订金额。</text>
+    </view>
+    <view>
+     <text>2、获取口令方式：可通过“个人中心-我的专属客服" 联系客服获取最新的口令信息。</text>
+    </view>
+    <view>
+     <text>3、每个用户,在预订期内可通过口令兑换一次。</text>
+    </view>
+   </view>
+  </view>
+ </view>
+</wux-popup>
+<!-- 验证口令弹层 -->
+<wux-popup position="bottom" visible="{{ showVerify }}" bind:close="onVerify">
+ <view class="modelVerify">
+  <view class="title">口令验证</view>
+  <view class="verifyBox">
+   <view class="verifyBoxInp">
+    <input type="text" placeholder="请输入口令" value="{{verifyStr}}" bindinput="getInpVal"></input>
+   </view>
+   <view class="verifyBoxBtn" bindtap="verify">
+    <text>验证口令</text>
+   </view>
+   <view><text>可通过您的专属客服获取口令</text></view>
+  </view>
+ </view>
+</wux-popup>

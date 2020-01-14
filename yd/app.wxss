@@ -1,0 +1,5 @@
+/**app.wxss**/
+@import "/utils/wxParse/wxParse.wxss";
+view{
+  overflow: hidden;
+}

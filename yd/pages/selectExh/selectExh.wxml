@@ -1,0 +1,51 @@
+<!--pages/selectExh/selectExh.wxml-->
+<!-- 选择展位 -->
+<view class="selectExh">
+  <view class="selectExhBox">
+    <!-- header   -->
+    <view class="selectExhBoxHeader">
+      <view class="headerButton"><text>【俄罗斯】俄罗斯通讯设备展</text></view>
+      <view><text>2020.04.21~2020.04.24</text></view>
+    </view>
+    <!-- 中间层提示 -->
+    <view class="selectExhHint">
+      <view class="item">
+        <text class="itemColor itemColorA"></text><text>锁定区</text>
+      </view>
+      <view class="item itemB">
+        <text class="itemColor itemColorB"></text><text>已选中</text>
+      </view>
+      <view class="item">
+        <text class="itemColor itemColorC"></text><text>可选区</text>
+      </view>
+    </view>
+    <!-- 选择展位 -->
+    <view class="selectExhCentre">
+      <movable-area scale-area class="selectExhCentreArea">
+        <movable-view class="selectExhCentreBox" direction="all" scale="true" scale-min='1' scale-max='5' scale-value="1.8" x="-300" bindchange="onChange" bindscale="onScale">
+          <view class="selectExhImg">
+            <view class="exhBox" style="width:{{widths}}">
+              <block class="exhBoxitem {{index+1%22==0?'exhBoxitemActive':''}}" wx:for="{{dataList}}" wx:key="index">
+                <image src="../../img/selectExh/lock.png" wx:if="{{item.status == 3}}" data-index="{{index}}" data-val="{{item.area_value}}"></image>
+                <image src="../../img/selectExh/select.png" wx:if="{{item.status == 1}}" data-index="{{index}}" data-val="{{item.area_value}}" bindtap="selectExh" data-id="{{item.area_value_id}}"></image>
+                <image src="../../img/selectExh/selected.png" wx:if="{{item.status == 2}}" data-index="{{index}}" data-val="{{item.area_value}}" bindtap="selectExh" data-id="{{item.area_value_id}}"></image>
+                <view class="exhBoxitems" wx:if="{{item.status == 4}}" data-index="{{index}}" data-val="{{item.area_value}}"></view>
+                <image src="../../img/selectExh/pillar.png" wx:if="{{item.status == 5}}" data-index="{{index}}" data-val="{{item.area_value}}"></image>
+              </block>
+            </view>
+          </view>
+        </movable-view>
+      </movable-area>
+    </view>
+    <!-- 已选提示 -->
+    <view class="selectExhMsg" wx:if="{{types == 1}}">
+      <view class="item">
+        <text>{{msg}}： </text><text class="itemColor"> {{exhVal}}</text>
+      </view>
+    </view>
+    <!-- footerBut -->
+    <view class="selectExhFooter" wx:if="{{types == 1}}">
+      <view class="footerBut" bindtap="sub"><text>确定</text></view>
+    </view>
+  </view>
+</view>

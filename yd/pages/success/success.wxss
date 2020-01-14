@@ -1,0 +1,56 @@
+/* pages/success/success.wxss */
+.successBox{
+  width: 100%;
+  box-sizing: border-box;
+  font-size:20rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(40,40,40,1);
+  position: fixed;
+  height: 100%;
+  background:rgba(249,249,248,1);
+  display: flex;
+  justify-content: center;
+  padding-top: 20rpx;
+}
+.successMian{
+  width:702rpx;
+  height:421rpx;
+  background:rgba(255,255,255,1);
+  border-radius:8rpx;
+  padding-top: 38rpx;
+  box-sizing: border-box;
+  font-size:32rpx;
+  color:rgba(40,40,40,1);
+  text-align: center;
+}
+.successMian .nsuccessMianImg{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.successMian .successMianImg image{
+  width: 162rpx;
+  height: 216rpx;
+  box-sizing: border-box;
+}
+.successMian .successMianTxt{
+  margin: 26rpx 0 21rpx;
+}
+.successMian .successMianYd{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-size:22rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(53,114,195,1);
+}
+.successMian .successMianYd image{
+  width: 16rpx;
+  height: 25rpx;
+  margin-left: 14rpx;
+}

@@ -1,0 +1,11 @@
+<!--pages/sharePosters/sharePosters.wxml-->
+<!-- 海报分享 -->
+<view class="sharePostersBox">
+   <view class="sharePosters">
+      <view class="title"><text>长按图片保存海报，将海报分享给好友</text></view>
+      <!-- 海报 -->
+      <view class="posters">
+         <image src="../../img/ceshi/img1.png" show-menu-by-longpress="true"></image>
+      </view>
+   </view>
+</view>

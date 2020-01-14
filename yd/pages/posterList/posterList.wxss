@@ -1,0 +1,23 @@
+/* pages/posterList/posterList.wxss */
+.posterList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+}
+swiper {
+    padding-top: 30px;
+    width: 100%;
+    height: 873rpx;
+}
+.le-img {
+    width: 510rpx;
+    height: 873rpx;
+    display: block;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    border-radius: 6rpx;
+}
+.le-active {
+    transform: scale(1);
+}

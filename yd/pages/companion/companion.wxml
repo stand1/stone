@@ -1,0 +1,77 @@
+<!--pages/companion/companion.wxml-->
+<!-- 推荐展位 -->
+<view class="companionBox">
+  <view class="companion">
+     <!-- banner -->
+     <view class="header">
+       <text>{{exhNum}}</text>
+     </view>
+     <!-- mianList -->
+     <view class="center">
+       <view class="item" wx:for="{{dataList}}" wx:key="index">
+          <view class="itemT">
+             <view class="itemTL">
+                <image src="{{item.avatar}}"></image>
+                <text>{{item.nick}}</text>
+             </view>
+             <view class="itemTR">
+                <text>{{item.add_datetime}}</text>
+             </view>
+          </view>
+          <view class="itemB">
+             <view class="itemBName"><text>{{item.exhibition_name}}</text></view>
+             <view class="itemBTxt"><text>消费类电子展区：{{item.acreage_name}}</text></view>
+             <view class="itemBStatusBox">
+                <view class="itemStatus">
+                   <view class="itemStatusT"><image src="../../img/invitation/img1.png"></image></view>
+                   <view><text>预订成功</text></view>
+                </view>
+                <view class="itemLengsA" wx:if="{{item.condition == 6}}"></view>
+                <view class="itemLengsA itemLengsAs" wx:if="{{item.condition != 6}}"></view>
+                <!-- 选择展位 已选择展位 -->
+                <view class="itemStatus">
+                   <view class="itemStatusT"><image src="../../img/invitation/img2.png"></image></view>
+                   <view><text>选择展位</text></view>
+                </view>
+                <!-- 选择展位 未选择展位 -->
+                <!-- <view class="itemStatus">
+                   <view class="itemStatusT"><image src="../../img/invitation/img3.png"></image></view>
+                   <view><text>选择展位</text></view>
+                </view> -->
+                <view class="itemLengsB" wx:if="{{item.condition == 2}}"></view>
+                <view class="itemLengsB itemLengsBa" wx:if="{{item.condition == 1}}"></view>
+                <view class="itemLengsB itemLengsBb" wx:if="{{item.condition == 4}}"></view>
+                <view class="itemLengsB itemLengsBc" wx:if="{{item.condition == 5 || item.condition == 3}}"></view>
+                <!-- 锁定展位  成功-->
+                <view class="itemStatus" wx:if="{{item.condition == 1}}">
+                   <view class="itemStatusT"><image src="../../img/invitation/img4.png"></image></view>
+                   <view><text>锁定展位</text></view>
+                </view>
+                <!-- 锁定展位  未锁定-->
+                <view class="itemStatus" wx:if="{{item.condition == 2}}">
+                   <view class="itemStatusT"><image src="../../img/invitation/img5.png"></image></view>
+                   <view><text>锁定展位</text></view>
+                </view>
+                <!-- 申请退款 -->
+                <view class="itemStatus" wx:if="{{item.condition == 4}}">
+                   <view class="itemStatusT"><image src="../../img/invitation/img6.png"></image></view>
+                   <view><text>申请退款</text></view>
+                </view>
+                <!-- 退款成功 -->
+                <view class="itemStatus" wx:if="{{item.condition == 5}}">
+                   <view class="itemStatusT"><image src="../../img/invitation/img7.png"></image></view>
+                   <view><text>退款成功</text></view>
+                </view>
+                <!-- 展位失效 -->
+                <view class="itemStatus" wx:if="{{item.condition == 3}}">
+                   <view class="itemStatusT"><image src="../../img/invitation/img8.png"></image></view>
+                   <view><text>展位失效</text></view>
+                </view>
+             </view>
+             <view class="itemBTxt itemBTxts"><text>{{item.company_name}}</text></view>
+             <view class="itemBTxt"><text class="mr">{{item.full_name}}</text><text>{{item.mobile_number}}</text></view>
+          </view>
+       </view>
+     </view>
+  </view>
+</view>

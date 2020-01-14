@@ -1,0 +1,161 @@
+<!--pages/exhibitionDetails/exhibitionDetails.wxml-->
+<import src="../../utils/wxParse/wxParse.wxml"/>
+<view class="exhDetailsBox">
+  <view class="exhDetails">
+    <!-- header -->
+    <view class="exhHeader">
+      <view class="exhHeaderL">
+        <image src="{{datas.img}}"></image>
+      </view>
+      <view class="exhHeaderR">
+        <view class="exhHeaderRT">
+          <view class="title"><text>{{datas.exhibition_name}}</text></view>
+          <view><text>已有 <text class="colors">{{datas.number}}</text> 人预订</text></view>
+        </view>
+        <view class="exhHeaderRB">
+          <text>￥ <text class="colors">{{datas.booth_price}}</text> 元/9㎡</text>
+        </view>
+      </view>
+    </view>
+    <!-- title  -->
+    <view class="exhName" bindtap="checkExhibition">
+      <view class="exhNameL">
+        <view class="exhNameTile"><text>{{datas.address}}</text></view>
+        <view><text>{{datas.opening_time}}</text></view>
+      </view>
+      <view class="exhNameR">
+        <view class="exhNameRtxt">展位分布 <image src="../../img/index/right.png"></image></view>
+      </view>
+    </view>
+    <!-- 预订须知 -->
+    <view class="exhReserve" bindtap="description">
+      <view class="exhReserveL"><text>预订须知</text></view>
+      <view class="exhReserveR"><image src="../../img/index/right_a.png"></image></view>
+    </view>
+    <!-- 项目详情 -->
+    <view class="projectDetails">
+      <view class="projectTitle">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      </view>
+    </view>
+    <!-- footer  -->
+    <view class="exhFooter">
+      <!-- 分享 -->
+      <view class="exhFooterL" wx:if="{{datas.condition == 1 || datas.condition == 2}}">
+        <button class="share" open-type="share" hover-class="none">
+        <view class="shareImg"><image src="../../img/index/share.png"></image></view>
+        <!-- <view class="shareTxt"><text>分享</text></view> -->
+      </button>
+      </view>
+      <view class="exhFooterR" wx:if="{{datas.condition == 1 && datas.status == 1}}">
+        <!-- 结束时间 -->
+        <view class="timers">
+          <view class="timersT"><text>结束时间</text></view>
+          <view class="timersB"><text>{{datas.end_time}}</text></view>
+        </view>
+        <!-- 预订展位 已登录-->
+        <view class="closing" bindtap="changeShowBox" wx:if="{{showUserInfo}}">
+          <view class="closingT"><text>预订展位</text></view>
+          <view class="closingB"><text>￥{{datas.price}}元起</text></view>
+        </view>
+        <!-- 预订展位 未登录-->
+        <view class="closing" wx:if="{{!showUserInfo}}">
+          <button open-type="getUserInfo" bindgetuserinfo="getInfo" class="reserveTBtn">
+            <view class="closingT"><text>预订展位</text></view>
+            <view class="closingB" style="font-size:22rpx;"><text>￥{{datas.price}}元起</text></view>
+          </button>
+        </view>
+      </view>
+      <view class="exhFooterR" wx:if="{{datas.condition == 2 && datas.status == 2}}">
+        <!-- 预售截止时间 -->
+        <view class="presell">
+          <view class="presellT"><text>预售截止时间</text></view>
+          <view class="presellB"><text>{{datas.end_time}}</text><text>{{datas.discount_info}}</text></view>
+        </view>
+        <!-- 预订展位 已登录-->
+        <view class="reserve" bindtap="changeShowBox" wx:if="{{showUserInfo && datas.order_condition == 0}}">
+          <view class="reserveT"><text>预订</text></view>
+        </view>
+        <!-- 预订展位 已登录-->
+        <view class="reserve" wx:if="{{showUserInfo && datas.order_condition == 1}}">
+          <view class="reserveT"><text>已预订</text></view>
+        </view>
+        <!-- 预订展位 未登录-->
+        <view class="reserve" wx:if="{{!showUserInfo}}">
+          <button open-type="getUserInfo" bindgetuserinfo="getInfo" class="reserveTBtn"><text>预订</text></button>
+        </view>
+      </view>
+      <view class="exhFooterR" wx:if="{{datas.status == 3 && datas.condition == 3}}">
+        <!-- 展位已售罄 -->
+        <view class="soldOut">
+          <view class="soldOutBtn"><text>展位已售罄</text></view>
+        </view>
+      </view>
+      <view class="exhFooterR" wx:if="{{datas.condition == 4 && datas.status != 2}}">
+        <!-- 挑选展位 -->
+        <view class="select">
+          <view class="selectBtn" bindtap="selectExh" data-code="{{datas.order_sn}}"><text>挑选展位</text></view>
+        </view>
+      </view>
+      <view class="exhFooterR" wx:if="{{datas.condition == 5}}">
+        <!-- 预订成功 -->
+        <view class="reserveed">
+          <view class="reserveedBtn" bindtap="checkExh" data-code="{{datas.order_sn}}"><text>查看展位</text></view>
+        </view>
+      </view>
+      <view class="exhFooterR" wx:if="{{datas.condition == 6}}">
+        <!-- 待支付 -->
+        <view class="payment">
+          <view class="paymentBtn" bindtap="payment" data-code="{{datas.order_sn}}"><text>去支付</text></view>
+        </view>
+      </view>
+      <view class="exhFooterR" wx:if="{{datas.condition == 7}}">
+        <!-- 退款中 -->
+        <view class="refund">
+          <view class="refundBtn"><text>退款中</text></view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 弹层 -->
+  <wux-popup position="bottom" visible="{{ showBox }}" bind:close="onClose">
+    <view class="modleBox">
+      <!-- 选择展区 -->
+      <view class="modleBoxCon">
+        <view class="title">选择展区</view>
+        <view class="mianBox">
+          <view class="item {{item.is_choose==2?'itemErr':''}} {{item.area_id==indexNum?'itemActive':''}}" bindtap="getIndex" wx:for="{{boothList}}" wx:key="index" data-str="{{item.area_name}}" data-id="{{item.area_id}}" data-isCheck="{{item.is_choose}}">
+          <text>{{item.area_name}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 展区面积 -->
+      <view class="modleBoxCon modleBoxCons">
+        <view class="title">展区面积</view>
+        <view class="mianBox">
+          <view class="item {{item.is_choose==2?'itemErr':''}} {{areaIndex==item.acreage_id?'itemActive':''}}" bindtap="getExhIndex" wx:for="{{boothAreaList}}" wx:key="index" data-str="{{item.acreage_name}}" data-id="{{item.acreage_id}}" data-isCheck="{{item.is_choose}}">
+          <text>{{item.acreage_name}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 开口数量 -->
+      <view class="modleBoxCon modleBoxCons">
+        <view class="title">开口数量</view>
+        <view class="mianBox">
+          <view class="item {{item.is_click==2?'itemErr':''}} {{number==item.id?'itemActive':''}}" bindtap="getExhNumber" wx:for="{{numberList}}" wx:key="index" data-str="{{item.open_num}}" data-id="{{item.id}}" data-isCheck="{{item.is_click}}">
+          <text>{{item.open_num}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 已选 -->
+      <view class="selected">
+        <view class="title"><text>已选</text></view>
+        <view><text class="txt">{{exhName}}</text><text wx:if="{{areaNum!=''}}">{{areaNum}}</text><text class="txt">{{numberStr}}</text></view>
+      </view>
+      <!-- button -->
+      <view class="medleBoxBtn">
+        <view class="btn" bindtap="subOrders">立即预订</view>
+      </view>
+    </view>
+  </wux-popup>
+</view>

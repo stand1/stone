@@ -1,0 +1,20 @@
+<!--pages/referrals/referrals.wxml-->
+<!-- 推荐人数 -->
+<view class="referralsBox">
+  <view class="referrals">
+    <!-- banner -->
+     <view class="header">
+       <text>{{peopleNum}}</text>
+     </view>
+     <!-- mian -->
+     <view class="center">
+        <view class="item" wx:for="{{dataList}}" wx:key="index">
+          <view class="itemL">
+             <image src="{{item.avatar}}"></image>
+             <text>{{item.nick}}</text>
+          </view>
+          <view class="itemR"><text>{{item.add_datetime}}</text></view>
+        </view>
+     </view>
+  </view>
+</view>

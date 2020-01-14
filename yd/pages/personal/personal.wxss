@@ -1,0 +1,110 @@
+/* pages/personal/personal.wxss */
+.personal{
+  width: 100%;
+  box-sizing: border-box;
+}
+.personalBox{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background:rgba(249,249,248,1);
+  box-sizing: border-box;
+  overflow: auto;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(35,35,35,1);
+}
+.personaT{
+  width:100%;
+  height:282rpx;
+  background:linear-gradient(139deg,rgba(25,43,87,1) 0%,rgba(63,46,99,1) 100%);
+  box-sizing: border-box;
+  padding: 65rpx 0 0 45rpx;
+  display: flex;
+}
+.personaT .personaTL{
+  width:120rpx;
+  height:120rpx;
+  background:rgba(255,255,255,1);
+  border-radius:50%;
+  margin-right: 25rpx;
+}
+.personaT .personaTL image{
+  width:120rpx;
+  height:120rpx;
+  border-radius:50%;
+}
+.personaT .personaTR{
+  height: 120rpx;
+  margin-top: 40rpx;
+  font-size:32rpx;
+  color: #fff;
+}
+.personaTRTs{
+  width: 140rpx;
+  height: 40rpx;
+  box-sizing: border-box;
+}
+.personaTRTs button{
+  background: none;
+  border: none;
+  width: 140rpx;
+  padding: 0;
+  margin: 0;
+  color:rgba(243,190,121,1);
+  font-size:32rpx;
+  font-weight:bold;
+}
+.personaTRTxt{
+  margin-top: 8rpx;
+  width: 400rpx;
+  height: 32rpx;
+  box-sizing: border-box;
+}
+.personaTRTxt button{
+  background: none;
+  border: none;
+  width: 280rpx;
+  height: 22rpx;
+  padding: 0;
+  margin: 0;
+  color:rgba(243,190,121,1);
+  font-size:26rpx;
+  font-weight:400;
+}
+.personaB{
+  width:100%;
+  height:558rpx;
+  background:rgba(255,255,255,1);
+  border:1rpx solid rgba(246,246,246,1);
+  border-radius:12rpx;
+  margin-top: -15rpx;
+  padding: 0 50rpx;
+  box-sizing: border-box;
+}
+.personaBItem{
+  width: 100%;
+  height: 110rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(220,220,220,1);
+  font-size:28rpx;
+  font-weight:bold;
+  color:rgba(35,35,35,1);
+}
+.personaBItem:last-child{
+  border-bottom: none;
+}
+.personaBItem .itemIcon{
+  width: 36rpx;
+  height: 34rpx;
+  box-sizing: border-box;
+  margin-right: 24rpx;
+}
+.personaBItem .itemIcon image{
+  width: 36rpx;
+  height: 34rpx;
+  box-sizing: border-box;
+}

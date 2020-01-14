@@ -1,0 +1,155 @@
+/* pages/companion/companion.wxss */
+.companionBox{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: fixed;
+  overflow: auto;
+  background:rgba(249,249,248,1);
+}
+.companion{
+  width: 100%;
+  box-sizing: border-box;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.header{
+  width: 100%;
+  height: 340rpx;
+  box-sizing: border-box;
+  background: url('https://yd.mycze.com/img/invitation/companionExhBg.png') no-repeat;
+  background-size: 100% 100%;
+  font-size:40rpx;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  padding: 194rpx 0 0 95rpx;
+}
+.header text{
+  display: block;
+  width: 130rpx;
+  height: 60rpx;
+  text-align: right;
+}
+.center{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 38rpx 25rpx;
+}
+.item{
+  width:699rpx;
+  background:rgba(255,255,255,1);
+  border-radius:8rpx;
+  margin-bottom: 16rpx;
+  padding: 22rpx 22rpx 20rpx;
+  box-sizing: border-box;
+}
+.item:last-child{
+  margin-bottom: 0;
+}
+.itemT{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15rpx;
+  border-bottom: 1rpx solid rgba(229,229,229,1);
+}
+.itemTL{
+  display: flex;
+  align-items: center;
+  font-size:28rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+}
+.itemTL image{
+  width:40rpx;
+  height:40rpx;
+  background:rgba(149,149,149,1);
+  border-radius:50%;
+  margin-right: 10rpx;
+}
+.itemB{
+  width: 100%;
+  /* height: 327rpx; */
+  box-sizing: border-box;
+  padding-top: 21rpx;
+  /* opacity: 0; */
+  /* transition: height 2s; */
+}
+.itemBActive{
+  /* height: 327rpx; */
+  opacity: 1;
+}
+.itemB .itemBName{
+  font-size:28rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  margin-bottom: 12rpx;
+}
+.itemBTxts{
+  margin-bottom: 10rpx;
+}
+.itemB .mr{
+  margin-right: 40rpx;
+}
+.itemBStatusBox{
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid rgba(229,229,229,1);
+  padding:0 42rpx 23rpx;
+  display: flex;
+  /* justify-content: space-between; */
+  position: relative;
+  margin-bottom: 21rpx;
+}
+.itemStatus{
+  box-sizing: border-box;
+  font-size:22rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+}
+.itemBStatusBox view:nth-child(3){
+  margin: 0 150rpx;
+}
+.itemStatusT{
+  width: 86rpx;
+  height: 86rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.itemStatusT image{
+  width: 60rpx;
+  height: 60rpx;
+  box-sizing: border-box;
+}
+.itemLengsA{
+  width: 180rpx;
+  border:1rpx dashed rgba(191,191,191,1);
+  position: absolute;
+  left: 110rpx;
+  top:46rpx;
+}
+.itemLengsB{
+  width: 180rpx;
+  border:1rpx dashed rgba(191,191,191,1);
+  position: absolute;
+  right: 128rpx;
+  top:46rpx;
+}
+.itemLengsAs{
+  border:1rpx dashed rgba(143,195,31,1);
+}
+.itemLengsBa{
+  border:1rpx dashed rgba(143,195,31,1);
+}
+.itemLengsBb{
+  border:1rpx dashed rgba(175,0,16,1);
+}
+.itemLengsBc{
+  border:1rpx dashed rgba(229,0,79,1);
+}

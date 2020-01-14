@@ -1,0 +1,36 @@
+/* pages/service/service.wxss */
+.service{
+  width: 100%;
+  box-sizing: border-box;
+}
+.serviceBox{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  box-sizing: border-box;
+  background:rgba(249,249,248,1);
+  padding: 19rpx 24rpx 0;
+}
+.serviceMian{
+  width: 100%;
+  height:421rpx;
+  box-sizing: border-box;
+  background:rgba(255,255,255,1);
+  text-align: center;
+  padding: 89rpx 0 109rpx;
+  border-radius:8rpx;
+}
+.serviceMianImg{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.serviceMianImg image{
+  width: 86rpx;
+  height: 96rpx;
+  box-sizing: border-box;
+}
+.serviceMianTxt{
+  margin: 42rpx 0 18rpx;
+}

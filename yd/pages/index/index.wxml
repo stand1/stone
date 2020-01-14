@@ -1,0 +1,68 @@
+<!--index.wxml-->
+<view class="index">
+  <view class="indexTop">
+    <view class="indexTopImg"><image src="{{imgUrl}}"></image></view>
+  </view>
+  <!-- list -->
+  <view class="indexBox">
+    <view class="item" wx:for="{{dataList}}" wx:key="index">
+      <view class="itemL">
+        <view class="name"><text>{{item.exhibition_name}}</text></view>
+        <view class="timer"><text>{{item.launch_date}}</text></view>
+        <view class="address"><text>{{item.address}}</text></view>
+        <view class="txts" wx:if="{{item.status == 1}}"><text>预订 <text class="reserve">{{item.number}} </text> 份</text></view>
+        <view class="txts" wx:if="{{item.status == 2}}"><text>预售 <text class="presell">{{item.number}} </text> 份</text></view>
+        <view class="txts" wx:if="{{item.status == 3}}"><text>售卖 <text class="sell">{{item.number}}</text> 份</text></view>
+      </view>
+      <view class="itemR">
+        <view class="btn reserve" data-id="{{item.id}}" bindtap="checkDetails" wx:if="{{item.status == 1}}">预订</view>
+        <view class="btn presell" data-id="{{item.id}}" bindtap="checkDetails" wx:if="{{item.status == 2}}">预售</view>
+        <view class="btn sell" data-id="{{item.id}}" bindtap="checkDetails" wx:if="{{item.status == 3}}">满展</view>
+      </view>
+    </view>
+    <!-- <view class="item">
+      <view class="itemL">
+        <view class="name"><text>俄罗斯通讯设备展</text></view>
+        <view class="timer"><text>2020.04.20-2020.04.23</text></view>
+        <view class="address"><text>莫斯科红宝石展览中心</text></view>
+        <view class="txts"><text>预订 <text class="reserve">999 </text> 份</text></view>
+      </view>
+      <view class="itemR">
+        <view class="btn reserveing" bindtap="ceshi">已预订</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="itemL">
+        <view class="name"><text>俄罗斯通讯设备展</text></view>
+        <view class="timer"><text>2020.04.20-2020.04.23</text></view>
+        <view class="address"><text>莫斯科红宝石展览中心</text></view>
+        <view class="txts"><text>售卖 <text class="sell">999 </text> 份</text></view>
+      </view>
+      <view class="itemR">
+        <view class="btn sell" bindtap="sub">满展</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="itemL">
+        <view class="name"><text>俄罗斯通讯设备展</text></view>
+        <view class="timer"><text>2020.04.20-2020.04.23</text></view>
+        <view class="address"><text>莫斯科红宝石展览中心</text></view>
+        <view class="txts"><text>预售 <text class="presell">999 </text> 份</text></view>
+      </view>
+      <view class="itemR">
+        <view class="btn presell">预售中</view>
+      </view>
+    </view>
+    <view class="item">
+      <view class="itemL">
+        <view class="name"><text>俄罗斯通讯设备展</text></view>
+        <view class="timer"><text>2020.04.20-2020.04.23</text></view>
+        <view class="address"><text>莫斯科红宝石展览中心</text></view>
+        <view class="txts"><text>预售 <text class="presell">999 </text> 份</text></view>
+      </view>
+      <view class="itemR">
+        <view class="btn preselling">已预订</view>
+      </view>
+    </view> -->
+  </view>
+</view>

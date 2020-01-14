@@ -1,0 +1,281 @@
+<!--pages/orderDetails/orderDetails.wxml-->
+<!-- 订单详情 -->
+<view class="orderDetails">
+ <view class="orderDetailsBox">
+  <!-- 订单状态 -->
+  <view class="orderState">
+   <!-- 预订成功 -->
+   <view class="orderStates orderStateYdcg" wx:if="{{showTitle == 3}}">
+     <view class="orderStateYdcgT">
+       <icon type="success" size="30"></icon>
+       <text>预订成功</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <text>{{datas.orderinfo.order_description}}</text>
+      <text wx:if="{{showTimers}}">{{timers}}</text>
+     </view>
+   </view>
+   <!-- 待支付 -->
+   <view class="orderStates orderStateDzf" wx:if="{{showTitle == 2}}">
+     <view class="orderStateYdcgT">
+       <image src="../../img/exh/unpaid.png"></image>
+       <text>待支付</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <view>
+        <text>剩余支付时间：</text>
+        <text wx:if="{{showTimers}}">{{timers}}，未完成支付则预订取消。</text>
+      </view>
+      <!-- <view><text>未完成支付则预订取消、您需要重新预订并完成支付。</text></view> -->
+     </view>
+   </view>
+   <!-- 取消 -->
+   <view class="orderStates" wx:if="{{showTitle == 7}}">
+     <view class="orderStateYdcgT">
+       <icon type="warn" size="30"></icon>
+       <text>预订已取消</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <text>{{datas.orderinfo.order_description}}</text>
+     </view>
+   </view>
+   <!-- 已失效 -->
+   <view class="orderStates orderStatesLose" wx:if="{{showTitle == 1}}">
+     <view class="orderStateYdcgT">
+       <image src="../../img/exh/lose.png"></image>
+       <text>已失效</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <text>{{datas.orderinfo.order_description}}</text>
+     </view>
+   </view>
+   <!-- 请挑选您的展位 -->
+   <!-- <view class="orderStates orderStateYdcg">
+     <view class="orderStateYdcgT">
+       <image src="../../img/exh/selectA.png"></image>
+       <text>请挑选您的展位</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <view>
+        <text>距离开展时间还剩：</text>
+        <text wx:if="{{showTimers}}">{{timers}}</text>
+      </view>
+      <view><text>未完成支付则预订取消、您需重新预订并完成支付。</text></view>
+     </view>
+   </view> -->
+   <!-- 展位已锁定 -->
+   <view class="orderStates orderStateLock" wx:if="{{showTitle == 4}}">
+     <view class="orderStateYdcgT">
+       <image src="../../img/exh/lock.png" style="width:37rpx;"></image>
+       <text>展位已锁定</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <view>
+        <text>距离开展时间还剩：</text>
+        <text wx:if="{{showTimers}}">{{timers}}</text>
+      </view>
+      <!-- <view><text>{{datas.orderinfo.order_description}}</text></view> -->
+     </view>
+   </view>
+   <!-- 延期成功 -->
+   <view class="orderStates orderStateLock" wx:if="{{showTitle == 9}}">
+     <view class="orderStateYdcgT">
+       <image src="../../img/exh/postpone.png"></image>
+       <text>延期成功</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <view>
+        <text>距离锁定展位还剩：</text>
+        <text wx:if="{{showTimers}}">{{timersT}}</text>
+      </view>
+      <!-- <view><text>{{datas.orderinfo.order_description}}</text></view> -->
+     </view>
+   </view>
+   <!-- 退款成功 -->
+   <view class="orderStates orderStateYdcg" wx:if="{{showTitle == 6}}">
+     <view class="orderStateYdcgT">
+       <icon type="success" size="30"></icon>
+       <text>退款成功</text>
+     </view>
+     <view class="orderStateYdcgB">
+       <text>{{datas.orderinfo.order_description}}</text>
+     </view>
+   </view>
+   <!-- 退款审核中 -->
+   <view class="orderStates orderStateReject" wx:if="{{showTitle == 5}}">
+     <view class="orderStateYdcgT">
+       <image src="../../img/exh/refund.png"></image>
+       <text>退款审核中</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <text>{{datas.orderinfo.order_description}}</text>
+     </view>
+   </view>
+   <!-- 退款申请已取消 -->
+   <view class="orderStates orderStateRejectCancer" wx:if="{{showTitle == 8}}">
+     <view class="orderStateYdcgT">
+       <image src="../../img/exh/back.png"></image>
+       <text>{{datas.orderinfo.order_description}}</text>
+     </view>
+   </view>
+   <!-- 已完款审核 -->
+   <!-- <view class="orderStates orderStateInsanity">
+     <view class="orderStateYdcgT">
+       <image src="../../img/exh/insanity.png"></image>
+       <text>已完款审核</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <text>距离锁定展位预订还剩：</text>
+      <text wx:if="{{showTimers}}">{{timers}}</text>
+     </view>
+   </view> -->
+   <!-- 审核拒绝 -->
+   <!-- <view class="orderStates orderStateReject">
+     <view class="orderStateYdcgT">
+       <icon type="cancel" size="30"></icon>
+       <text>审核拒绝</text>
+     </view>
+     <view class="orderStateYdcgB">
+      <text>您的退款申请审核不通过。</text>
+     </view>
+   </view> -->
+  </view>
+  <!-- 订单信息 -->
+  <view class="orderMsg">
+   <!-- 展会信息 -->
+   <view class="orderMsgBox">
+    <view class="title"><text>展会信息</text></view>
+    <view class="orderMsgBoxs">
+     <view class="item">
+      <view class="itemL"><text>展会名称</text></view>
+      <view class="itemR"><text>{{datas.exhibition_info.exhibition_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>预订展区</text></view>
+      <view class="itemR"><text>{{datas.exhibition_info.area_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>展位面积</text></view>
+      <view class="itemR"><text>{{datas.exhibition_info.acreage_name}}</text></view>
+     </view>
+     <view class="item" wx:if="{{datas.exhibition_info.order_booth}}">
+      <view class="itemL"><text>展位编号</text></view>
+      <view class="itemR"><text> {{datas.exhibition_info.order_booth}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>开口数量</text></view>
+      <view class="itemR"><text> {{datas.exhibition_info.open_num}}</text></view>
+     </view>
+    </view>
+   </view>
+   <!-- 公司信息 -->
+   <view class="orderMsgBox">
+    <view class="title"><text>公司信息</text></view>
+    <view class="orderMsgBoxs">
+     <view class="item">
+      <view class="itemL"><text>公司名称</text></view>
+      <view class="itemR"><text>{{datas.company_info.company_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>姓名</text></view>
+      <view class="itemR"><text>{{datas.company_info.full_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>联系方式</text></view>
+      <view class="itemR"><text>{{datas.company_info.mobile_number}}</text></view>
+     </view>
+    </view>
+   </view>
+   <!-- 附加信息 -->
+   <view class="orderMsgBox">
+    <view class="title"><text>附加信息</text></view>
+    <view class="orderMsgBoxs">
+     <view class="item">
+      <view class="itemL"><text>签证办理</text></view>
+      <view class="itemR">
+        <text wx:if="{{datas.add_info.is_visa}}">是</text>
+        <text wx:if="{{!datas.add_info.is_visa}}">否</text>
+      </view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>是否增租</text></view>
+      <view class="itemR">
+        <text wx:if="{{datas.add_info.is_relet}}">是</text>
+        <text wx:if="{{!datas.add_info.is_relet}}">否</text>
+      </view>
+     </view>
+    </view>
+   </view>
+   <!-- 预订信息 -->
+   <view class="orderMsgBox">
+    <view class="title"><text>预订信息</text></view>
+    <view class="orderMsgBoxs">
+     <view class="item">
+      <view class="itemL"><text>预订编号</text></view>
+      <view class="itemR"><text>{{datas.orderinfo.order_sn}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>预订时间</text></view>
+      <view class="itemR"><text>{{datas.orderinfo.add_datetime}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>预订金额</text></view>
+      <view class="itemR"><text>{{datas.orderinfo.order_amount}}元</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>口令优惠</text></view>
+      <view class="itemR"><text> -{{datas.orderinfo.order_discount}}元</text></view>
+     </view>
+     <view class="item" wx:if="{{datas.orderinfo.order_paytime}}">
+      <view class="itemL"><text>支付时间</text></view>
+      <view class="itemR"><text> {{datas.orderinfo.order_paytime}}</text></view>
+     </view>
+    </view>
+   </view>
+  </view>
+  <!-- footer -->
+  <view class="orderFooter">
+   <!-- 待支付 -->
+   <view class="noPayment" wx:if="{{showTitle == 2}}">
+     <view class="noPaymentL"><text>预订金额：</text><text class="noPaymentLC">¥ {{datas.orderinfo.payment_amount}} 元</text></view>
+     <view class="noPaymentR">
+       <view class="noPaymentRBtn" data-title="取消订单" data-center="您确定取消预订订单" data-type="2" bindtap="modalOpen">
+         <text>取消预订</text>
+       </view>
+       <view class="noPaymentRBtn noPaymentRBtnZf" bindtap="continuePay"><text>继续支付</text></view>
+     </view>
+   </view>
+   <!-- 重新预订 -->
+   <view class="rebook" wx:if="{{showTitle == 1 || showTitle == 7}}">
+     <view class="rebookBtn" bindtap="rebook">
+       <text>重新预订</text>
+     </view>
+   </view>
+   <!-- 预订成功 -->
+   <view class="btnBox" wx:if="{{(showTitle == 3 || showTitle == 9) && datas.orderinfo.order_type != 2}}">
+     <view class="btn" wx:if="{{datas.orderinfo.is_refund == 1 && datas.orderinfo.is_code == 2}}" data-title="申请退款" data-center="您确定进行退款申请" data-type="3" bindtap="modalOpen">
+      <text>申请退款</text>
+     </view>
+     <view class="btn cancer" wx:if="{{datas.orderinfo.is_refund == 2 && datas.orderinfo.is_code == 2}}"><text>申请退款</text></view>
+     <view class="btn prolong" wx:if="{{datas.orderinfo.is_delay == 1}}" bindtap="postpone"><text>延长期限</text></view>
+     <view class="btn prolong cancer" wx:if="{{datas.orderinfo.is_delay == 2}}"><text>延长期限</text></view>
+     <view class="btn select" wx:if="{{datas.orderinfo.is_choose_booth == 1}}" bindtap="selectExh"><text>挑选展位</text></view>
+     <view class="btn check" wx:if="{{datas.orderinfo.is_choose_booth == 2}}" bindtap="checkExh" data-code="{{datas.orderinfo.order_sn}}">
+       <text>查看展位</text>
+     </view>
+     <view class="btn paid" wx:if="{{datas.orderinfo.is_payment == 1 && datas.orderinfo.is_choose_booth == 2}}" bindtap="paidExh"><text>锁定展位</text></view>
+     <view class="btn paid cancer" wx:if="{{datas.orderinfo.is_payment == 2 && datas.orderinfo.is_choose_booth == 2}}"><text>锁定展位</text></view>
+   </view>
+   <!-- 展位锁定 -->
+   <view class="exhLock" wx:if="{{showTitle == 4}}">
+     <view class="exhLockBox" bindtap="checkExh" data-code="{{datas.orderinfo.order_sn}}"><text>查看展位</text></view>
+   </view>
+   <!-- 退款中  取消申请 -->
+   <view class="cancelRequest" wx:if="{{showTitle == 5}}">
+     <view class="cancelRequestkBox" data-title="取消退款" data-center="您确定取消退款申请" data-type="4" bindtap="modalOpen">
+       <text>取消申请</text>
+     </view>
+   </view>
+  </view>
+ </view>
+</view>

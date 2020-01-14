@@ -1,0 +1,80 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"coverView": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.9.4",
+	"appid": "wx1ea8bc78db4dac81",
+	"projectname": "%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%AE%A2%E5%B1%95%E4%BD%8D",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/exhibitionDetails/exhibitionDetails",
+					"pathName": "pages/exhibitionDetails/exhibitionDetails",
+					"query": "openid= o7TLn5UYrkqu79I3_hTDAlByYwL4&id=1",
+					"scene": 1007
+				},
+				{
+					"id": -1,
+					"name": "测试支付成功落地页",
+					"pathName": "pages/paySuccess/paySuccess",
+					"query": "code= 2019122415430284239",
+					"scene": 1011
+				},
+				{
+					"id": 2,
+					"name": "pages/success/success",
+					"pathName": "pages/success/success",
+					"query": "show=1",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "openid= o7TLn5UYrkqu79I3_hTDAlByYwL4",
+					"scene": null
+				}
+			]
+		}
+	}
+}

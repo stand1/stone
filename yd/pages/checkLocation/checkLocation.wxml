@@ -1,0 +1,42 @@
+<!--pages/checkLocation/checkLocation.wxml-->
+<!-- 查看位置 -->
+<view class="location">
+  <view class="locationBox">
+    <!-- header  -->
+    <view class="header">
+      <view class="title"><text>{{datas.exhibition_name}}</text></view>
+      <view class="name"><text>{{datas.address}}</text></view>
+      <view class="loca">
+        <view class="locaColor"><text>{{datas.boothlist}}</text></view>
+        <view><text>{{datas.area}}</text></view>
+      </view>
+      <view class="timers"><text>{{datas.start_date}}-{{datas.end_date}}</text></view>
+    </view>
+    <!-- centre -->
+    <view class="centre">
+      <view class="centreTitle">
+        <view class="centreTitleL"></view>
+        <view class="centreTitleC"><text>以下为时间安排</text></view>
+        <view class="centreTitleL"></view>
+      </view>
+      <!-- mian   -->
+      <view class="centreMian">
+        <view class="item" wx:for="{{datas.arrangement}}" wx:key="index">
+          <view class="itemL {{index==0?'itemLActive':''}}">
+            <view class="itemLT"><text>{{item.arrangement_time}}</text></view>
+            <view class="itemLB">
+              <view class="itemLBT {{index==0?'itemLBTActive':''}}"></view>
+              <view class="itemLBB {{index==0?'itemLBTActive':''}}"></view>
+            </view>
+          </view>
+          <view class="itemR">
+            <view class="itemRT"><text>{{item.arrangement_title}}</text></view>
+            <view class="itemRB">
+              <text>{{item.arrangement_content}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

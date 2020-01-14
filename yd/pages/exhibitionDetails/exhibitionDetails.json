@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "wux-popup": "../../dist/popup/index"
+  },
+  "navigationBarTitleText": "展会详情"
+}

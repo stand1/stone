@@ -1,0 +1,273 @@
+/* pages/orderDetails/orderDetails.wxss */
+.orderDetails{
+  width: 100%;
+  box-sizing: border-box;
+}
+.orderDetailsBox{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 24rpx 136rpx;
+  background:rgba(249,249,248,1);
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+}
+.orderState{
+  width: 100%;
+  box-sizing: border-box;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+/* 待支付  已取消 失效*/
+.orderStates{
+  width: 100%;
+  box-sizing: border-box;
+  background:rgba(223,223,223,1);
+  border-radius:8rpx;
+  padding: 25rpx 14rpx 36rpx;
+  margin-bottom: 10rpx;
+}
+/* 预订成功 审核成功*/
+.orderStateYdcg{
+  background:rgba(230,245,222,1);
+}
+/* 审核拒绝 */
+.orderStateReject{
+  background:rgba(225,199,200,1);
+}
+/* 退款申请已取消 */
+.orderStateRejectCancer{
+  background:rgba(209,228,241,1);
+}
+/* 展位已锁定 */
+.orderStateLock{
+  background:rgba(232,225,195,1);
+}
+.orderStates .orderStateYdcgT{
+  font-size:32rpx;
+  font-weight:bold;
+  color:rgba(51,51,51,1);
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.orderStateRejectCancer .orderStateYdcgT{
+  margin: 0;
+}
+.orderStates .orderStateYdcgT icon{
+  margin-right: 15rpx;
+}
+.orderStates .orderStateYdcgT image{
+  margin-right: 15rpx;
+  width: 44rpx;
+  height: 44rpx;
+  box-sizing: border-box;
+}
+.orderStatesLose .orderStateYdcgT image{
+  width: 58rpx;
+  height: 44rpx;
+}
+.orderMsg{
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.orderMsg .orderMsgBox{
+  width: 100%;
+  box-sizing: border-box;
+  background:rgba(255,255,255,1);
+  border-radius:8rpx;
+  padding: 25rpx 26rpx 26rpx;
+  margin-bottom: 14rpx;
+}
+.orderMsg .orderMsgBox .title{
+  font-size:32rpx;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+  border-bottom:2rpx dashed rgba(102,102,102,1);
+  padding-bottom: 19rpx;
+}
+.orderMsg .orderMsgBox .orderMsgBoxs{
+  padding-top: 21rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.orderMsg .orderMsgBox .orderMsgBoxs .item{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10rpx;
+}
+.orderMsg .orderMsgBox .orderMsgBoxs .item:last-child{
+  margin-bottom: 0;
+}
+.orderMsg .orderMsgBox .orderMsgBoxs .item .itemR{
+  color:rgba(51,51,51,1);
+}
+.orderFooter{
+  width:100%;
+  height:98rpx;
+  background:rgba(255,255,255,1);
+  border:1rpx solid rgba(229,229,229,1);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 26rpx;
+}
+.orderFooter .btnBox{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.orderFooter .btn{
+  width:160rpx;
+  height:64rpx;
+  background:rgba(255,255,255,1);
+  border:1rpx solid rgba(102,102,102,1);
+  border-radius:32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  margin-right: 11rpx;
+}
+.orderFooter .btn:last-child{
+  margin-right: 0;
+}
+.orderFooter .prolong{
+  /* border:1rpx solid rgba(251,234,209,1); */
+  /* color: rgba(251,234,209,1); */
+  border:1rpx solid rgba(16, 126, 243, 1);
+  color: rgba(16, 126, 243, 1);
+}
+.orderFooter .check{
+  border:1rpx solid rgba(10,157,8,1);
+  color: rgba(10,157,8,1);
+}
+.orderFooter .paid{
+  border:1rpx solid rgba(255,132,0,1);
+  color: rgba(255,132,0,1);
+}
+.orderFooter .select{
+  border:1rpx solid #0C0453;
+  color: #0C0453;
+}
+/* 至灰按钮 */
+.orderFooter .cancer{
+  background:rgba(220,220,220,1);
+  border:1rpx solid rgba(181,181,181,1);
+  color:rgba(180,180,180,1);
+}
+/* 待支付 */
+.orderFooter .noPayment{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:28rpx;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(51,51,51,1);
+}
+.orderFooter .noPayment .noPaymentLC{
+  font-weight:bold;
+  color:rgba(255,95,0,1);
+}
+.orderFooter .noPaymentR{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size:24rpx;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+}
+.orderFooter .noPaymentR .noPaymentRBtn{
+  width:160rpx;
+  height:64rpx;
+  background:rgba(184,184,184,1);
+  border-radius:32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.orderFooter .noPaymentR .noPaymentRBtnZf{
+  background:rgba(255,95,0,1);
+  margin-left: 26rpx;
+}
+.orderFooter .rebook{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.orderFooter .rebook .rebookBtn{
+  width:500rpx;
+  height:64rpx;
+  background:linear-gradient(0deg,rgba(255,113,0,1) 0%,rgba(255,148,62,1) 100%);
+  border-radius:32px 32px 32px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+}
+/* 展位锁定 */
+.exhLock{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.exhLock .exhLockBox{
+  width:500rpx;
+  height:64rpx;
+  background:linear-gradient(0deg,rgba(169,140,22,1) 0%,rgba(187,158,43,1) 100%);
+  border-radius:32rpx 32rpx 32rpx 0px;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 退款中  取消申请 */
+.cancelRequest{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancelRequestkBox{
+  width:500rpx;
+  height:64rpx;
+  background:linear-gradient(180deg,rgba(238,139,143,1) 0%,rgba(239,124,124,1) 100%);
+  border-radius:32rpx 32rpx 32rpx 0px;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

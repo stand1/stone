@@ -1,0 +1,21 @@
+<!--pages/success/success.wxml-->
+<view class="successBox">
+  <!-- 您的展位已预订成功！ -->
+  <view class="successMian" wx:if="{{isShow == 1}}">
+    <view class="successMianImg"><image src="../../img/exh/reserve.png"></image></view>
+    <view class="successMianTxt"><text>您的展位已预订成功！</text></view>
+    <view class="successMianYd" bindtap="goPlace">
+      <text class="txtColors">开始挑选位置</text>
+      <image src="../../img/index/right.png"></image>
+    </view>
+  </view>
+  <!-- 选择展位成功！ -->
+  <view class="successMian" wx:if="{{isShow == 2}}">
+    <view class="successMianImg"><image src="../../img/exh/select.png"></image></view>
+    <view class="successMianTxt"><text>选择展位成功！</text></view>
+    <view class="successMianYd" bindtap="goExhList">
+      <text class="txtColors">管理我的展位</text>
+      <image src="../../img/index/right.png"></image>
+    </view>
+  </view>
+</view>

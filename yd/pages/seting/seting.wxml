@@ -1,0 +1,12 @@
+<!--pages/seting/seting.wxml-->
+<!-- 设置 -->
+<view class="seting">
+  <view class="setingBox">
+    <view class="setingMian">
+      <view><text>了解最新的展会动态</text></view>
+      <view>
+        <switch checked="{{checked == 2}}" bindchange="changeType"/>
+      </view>
+    </view>
+  </view>
+</view>

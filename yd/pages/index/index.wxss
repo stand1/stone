@@ -1,0 +1,127 @@
+/**index.wxss**/
+.index{
+  width: 100%;
+  box-sizing: border-box;
+  background:rgba(255,255,255,1);
+}
+.indexTop{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx 24rpx 0;
+}
+.indexTopImg{
+  width: 100%;
+  height: 380rpx;
+  box-sizing: border-box;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.indexTopImg image{
+  width: 100%;
+  height: 380rpx;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+.indexBox{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15rpx 24rpx 0;
+}
+.indexBox .item{
+  width: 702rpx;
+  min-height: 200rpx;
+  box-sizing: border-box;
+  background: url('https://yd.mycze.com/img/index/indexBg.png') no-repeat;
+  background-size: 100% 100%;
+  padding: 22rpx 39rpx 31rpx 22rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(102,102,102,1);
+  margin-bottom: 10rpx;
+  overflow: hidden;
+}
+.itemL .name{
+  font-size:32rpx;
+  font-weight:bold;
+  color:rgba(17,17,17,1);
+  margin-bottom: 10rpx;
+  width: 500rpx;
+  box-sizing: border-box;
+}
+.itemL .txts{
+  font-size:20rpx;
+  color:rgba(17,17,17,1);
+  margin-top: 16rpx;
+}
+.itemL .txts .sell{
+  font-size:24rpx;
+  font-weight:bold;
+  color:#4B4B4B;
+}
+.itemL .txts .reserve{
+  font-size:24rpx;
+  font-weight:bold;
+  color:#4058FA;
+}
+.itemL .txts .presell{
+  font-size:24rpx;
+  font-weight:bold;
+  color:rgba(250,129,65,1);
+}
+.itemR .btn{
+  font-size:25rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  background: rgba(250,129,65,1);
+  color: #fff;
+  border-radius: 32rpx;
+}
+.itemR .reserve{
+  width:144rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background:linear-gradient(-90deg,rgba(68,90,250,1) 0%,rgba(80,172,251,1) 100%);
+  border-radius:30rpx;
+}
+.itemR .reserveing{
+  width:128rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background:rgba(255,255,255,1);
+  border:2rpx solid;
+  /* border-image:linear-gradient(0deg, rgba(80,170,251,1), rgba(68,92,250,1)) 10 10; */
+  border-radius:30rpx;
+  color:rgba(0,120,255,1);
+}
+.itemR .sell{
+  width:120rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background:linear-gradient(270deg,rgba(72,71,71,1) 0%,rgba(161,160,160,1) 100%);
+  border-radius:30rpx;
+}
+.itemR .presell{
+  width:128rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background:linear-gradient(-90deg,rgba(250,125,65,1) 0%,rgba(251,176,80,1) 100%);
+  border-radius:30px;
+}
+.item .preselling{
+  width:128rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  background:rgba(255,255,255,1);
+  border:2rpx solid;
+  border-radius:30rpx;
+  color:rgba(254,137,0,1);
+}

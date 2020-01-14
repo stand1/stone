@@ -1,0 +1,33 @@
+<!--pages/addAddress/addAddress.wxml-->
+<!-- 新增信息 -->
+<view class="addAddress">
+ <view class="addAddressBox">
+  <!-- 公司名称 -->
+  <view class="itemBox">
+   <text class="txtWidth">公司名称</text>
+   <input type="text" class="itemInp" placeholder="输入公司名称" value="{{comName}}" bindinput="getConName"></input>
+  </view>
+  <!-- 姓名 -->
+  <view class="itemBox">
+   <text class="txtWidth">姓名</text>
+   <input type="text" class="itemInp" placeholder="输入姓名" value="{{userName}}" bindinput="getUserName"></input>
+  </view>
+  <!-- 手机号码 -->
+  <view class="itemBox">
+   <text class="txtWidth">手机号码</text>
+   <input type="number" class="itemInp" placeholder="输入手机号码" maxlength="11" wx:if="{{!showInp}}" value="{{phone}}" bindinput="getPhone"></input>
+   <view class="itemBoxPhone" wx:if="{{showInp}}">
+    <button plain="true" open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">自动获取</button>
+   </view>
+  </view>
+  <!-- 是否默认地址 -->
+  <view class="addDefault" bindtap="changeAgree">
+   <view class="addDefaultIcon"><icon type="success_no_circle" size="12" wx:if="{{isDefault == 2}}"></icon></view>
+   <view bindtap="addDefaultTxt"><text>设置默认</text></view>
+  </view>
+  <!-- 保存 -->
+  <view class="addBtn">
+   <view class="addBtnBox" bindtap="save"><text>保存</text></view>
+  </view>
+ </view>
+</view>

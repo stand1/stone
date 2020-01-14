@@ -1,0 +1,16 @@
+<!--pages/depositing/depositing.wxml-->
+<!-- 零钱提现进度 -->
+<view class="depositingBox">
+  <view class="depositing">
+     <!-- 零钱提现中 -->
+     <view class="depositingA" wx:if="{{showIs == 1}}">
+       <image src="https://yd.mycze.com/img/invitation/looseIcon.png"></image>
+       <view class="txt"><text>正在处理中</text></view>
+     </view>
+     <!-- 零钱提现成功 -->
+     <view class="depositingB" wx:if="{{showIs == 2}}">
+       <view><icon type="success" size="80"></icon></view>
+       <view class="txt"><text>提现成功</text></view>
+     </view>
+  </view>
+</view>

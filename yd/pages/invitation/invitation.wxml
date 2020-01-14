@@ -1,0 +1,73 @@
+<!--pages/invitation/invitation.wxml-->
+<!-- 邀请有礼 -->
+<view class="invitationBox">
+  <view class="invitation">
+    <view class="header">
+      <!-- userName userImg   -->
+      <view class="headerT">
+        <view class="headerTL">
+          <view class="headerTLimg"><open-data type="userAvatarUrl"></open-data></view>
+          <view class="headerTLtxt"><open-data type="userNickName" lang="zh_CN"></open-data> </view>
+        </view>
+        <view class="headerTR" bindtap="promotionRules"><text>推广规则</text></view>
+      </view>
+      <!-- 邀请详情 -->
+      <view class="headerC">
+        <view class="headerCT">
+          <view class="headerCTL">
+            <text>推广奖励 (元)</text>
+            <text class="colors">{{datas.userinfo.share_o_amount}}</text>
+          </view>
+          <view class="headerCTR" bindtap="withdraw">
+            <text>立即提现</text>
+          </view>
+        </view>
+        <view class="headerCB">
+          <view class="headerCBL" bindtap="referrals">
+            <view class="headerCBLBox">
+              <text>推荐人数</text>
+              <text class="colors">{{datas.userinfo.recomend_num}}</text>
+            </view>
+          </view>
+          <view class="headerCBR" bindtap="companion">
+            <view class="headerCBRBox">
+              <text>推荐展位</text>
+              <text class="colors">{{datas.userinfo.recomend_booth_num}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 推荐攻略   邀请好友 -->
+      <view class="headerB">
+        <view class="headerBBox">
+          <view class="headerBL">
+             <image src="../../img/invitation/gl.png"></image>
+             <text>推广攻略</text>
+           </view>
+        </view>
+        <view class="headerBBox">
+           <view class="headerBR">
+             <image src="../../img/invitation/code.png"></image>
+             <text>邀请好友</text>
+           </view>
+        </view>
+      </view>
+    </view>
+    <view class="list">
+      <view class="listTitle"><text>展会推广</text></view>
+      <view class="listItem" bindtap="sharePosters">
+        <view class="listItemL">
+          <image src="{{datas.exhibition.img}}"></image>
+        </view>
+        <view class="listItemR">
+           <view class="listItemRTitle"><text>{{datas.exhibition.exhibition_name}}</text></view>
+           <view><text>开展时间：{{datas.exhibition.open_time}}</text></view>
+           <view class="generalize">
+              <view>推广金：<text class="generalizeColor">{{datas.exhibition.recommend_money}}</text> 元</view>
+              <view class="generalizes"><text>推广</text></view>
+           </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

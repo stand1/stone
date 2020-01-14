@@ -1,0 +1,40 @@
+<!--pages/personal/personal.wxml-->
+<!-- 个人中心 -->
+<view class="personal">
+  <view class="personaBox">
+    <view class="personaT">
+      <view class="personaTL"><image src="{{userImg}}"></image></view>
+      <view class="personaTR">
+        <view>
+          <view class="personaTRTs" wx:if="{{!isLogin}}"><button open-type="getUserInfo" bindgetuserinfo="getInfo">授权登录</button> </view>
+          <text wx:if="{{isLogin}}">{{userName}}</text>
+        </view>
+        <view class="personaTRTxt" wx:if="{{isLogin && !isPhone}}">
+          <button open-type='getPhoneNumber' bindgetphonenumber="getPhone">绑定手机开启更多权益</button>
+        </view>
+      </view>
+    </view>
+    <view class="personaB">
+      <view class="personaBItem" bindtap="frequent">
+        <view class="itemIcon"><image src="../../img/personal/img1.png"></image></view>
+        <text>常用信息</text>
+      </view>
+      <view class="personaBItem" bindtap="invitation">
+        <view class="itemIcon"><image src="../../img/personal/img2.png"></image></view>
+        <text>邀请有礼</text>
+      </view>
+      <view class="personaBItem" bindtap="seting">
+        <view class="itemIcon"><image src="../../img/personal/img3.png"></image></view>
+        <text>设置</text>
+      </view>
+      <view class="personaBItem" bindtap="yd">
+        <view class="itemIcon"><image src="../../img/personal/img4.png"></image></view>
+        <text>亚东国际</text>
+      </view>
+      <view class="personaBItem" bindtap="service">
+        <view class="itemIcon"><image src="../../img/personal/img5.png"></image></view>
+        <text>专属客服</text>
+      </view>
+    </view>
+  </view>
+</view>

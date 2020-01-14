@@ -1,0 +1,41 @@
+/* pages/paySuccess/paySuccess.wxss */
+.pay{
+  width: 100%;
+  box-sizing: border-box;
+}
+.payBox{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  box-sizing: border-box;
+  background:rgba(249,249,248,1);
+}
+.payBox .payBoxIcon{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+.payBox .payBoxTxt{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  color: #101010;
+  font-size: 35rpx;
+  font-weight: bold;
+  margin: 24rpx 0;
+}
+.payBox .payBoxBtn{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(53,114,195,1);
+}
+.payBox .payBoxBtn image{
+  width: 16rpx;
+  height: 25rpx;
+  margin-left: 15rpx;
+}

@@ -1,0 +1,11 @@
+<!--pages/service/service.wxml-->
+<!-- 专属客服 -->
+<view class="service">
+  <view class="serviceBox">
+    <view class="serviceMian">
+      <view class="serviceMianImg"><image src="../../img/personal/service.png"></image></view>
+      <view class="serviceMianTxt"><text>客户电话：</text><text>0755-83569300</text></view>
+      <view><text>服务时间：</text><text>09:00-18:00</text></view>
+    </view>
+  </view>
+</view>

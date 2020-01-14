@@ -1,0 +1,59 @@
+<!--pages/commonInfo/commonInfo.wxml-->
+<!-- 常用信息列表 -->
+<view class="common">
+  <view class="commonBox">
+    <!-- <view class="item" wx:for="{{dataList}}" wx:key="{{index}}">
+      <view class="title">
+        <text>公司信息</text>
+        <text class="txtMr" wx:if="{{item.is_default==2}}">默认</text>
+        <text class="setTxt" data-num="{{item.id}}" bindtap="editorAddress">编辑</text>
+      </view>
+      <view class="itemBox" data-num="{{item.id}}" bindtap="selectAddress">
+        <view class="itemBoxs">
+          <text>公司名称</text>
+          <text>{{item.company_name}}</text>
+        </view>
+        <view class="itemBoxs">
+          <text decode="{{true}}" space="{{true}}">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</text>
+          <text>{{item.full_name}}</text>
+        </view>
+        <view class="itemBoxs">
+          <text>联系方式</text>
+          <text>{{item.mobile_number}}</text>
+        </view>
+      </view>
+    </view> -->
+    <!-- 测试 -->
+    <view class="item" wx:for="{{dataList}}" wx:key="index">
+      <wux-swipe-action-group>
+        <wux-swipe-action autoClose right="{{ right }}" bind:click="onClick" data-id="{{item.id}}">
+          <view>
+            <view class="title">
+              <text>公司信息</text>
+              <text class="txtMr" wx:if="{{item.is_default==2}}">默认</text>
+              <!-- <text class="setTxt" data-num="{{item.id}}" bindtap="editorAddress">编辑</text> -->
+            </view>
+            <view class="itemBox" data-num="{{item.id}}" bindtap="selectAddress">
+              <view class="itemBoxs">
+                <text>公司名称</text>
+                <text>{{item.company_name}}</text>
+              </view>
+              <view class="itemBoxs">
+                <text decode="{{true}}" space="{{true}}">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名</text>
+                <text>{{item.full_name}}</text>
+              </view>
+              <view class="itemBoxs">
+                <text>联系方式</text>
+                <text>{{item.mobile_number}}</text>
+              </view>
+            </view>
+          </view>
+        </wux-swipe-action>
+      </wux-swipe-action-group>
+    </view>
+    <!-- footer -->
+    <view class="footer">
+      <view class="footerBtn" bindtap="addAddress">新增地址</view>
+    </view>
+  </view>
+</view>

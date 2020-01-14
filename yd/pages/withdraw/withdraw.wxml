@@ -1,0 +1,32 @@
+<!--pages/withdraw/withdraw.wxml-->
+<!-- 账户提现 -->
+<view class="withdrawBox">
+  <view class="withdraw">
+    <!-- 账户提现详情 -->
+    <view class="withdrawT">
+      <!-- header  收支记录-->
+      <view class="header">
+        <text bindtap="scheduleInterest">收支记录</text>
+      </view>
+      <!-- 提现center -->
+      <view class="center">
+        <view class="centerL">
+          <view class="centerLT">
+            <text>账户余额</text>
+            <image src="../../img/invitation/yj.png"></image>
+          </view>
+          <view class="centerLTColor">￥<text>{{amount}}</text></view>
+        </view>
+        <view class="centerR">
+          <view class="centerRT centerRTm" bindtap="looseChange" data-type="1"><text>零钱提现</text></view>
+          <view class="centerRT" bindtap="looseChange" data-type="2"><text>银行卡提现</text></view>
+        </view>
+      </view>
+    </view>
+    <!-- 疑难解答 -->
+    <view class="withdrawB" bindtap="troubleShooting">
+      <view class="withdrawBIcon"><text>?</text></view>
+      <view><text>疑难解答</text></view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,93 @@
+/* pages/addAddress/addAddress.wxss */
+.addAddress{
+  width: 100%;
+  box-sizing: border-box;
+}
+.addAddressBox{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  box-sizing: border-box;
+  background:rgba(249,249,248,1);
+  padding: 20rpx 24rpx;
+  font-size:32rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+}
+.addAddressBox .itemBox{
+  width: 100%;
+  height:88rpx;
+  background:rgba(255,255,255,1);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-left: 32rpx;
+  margin-bottom: 9rpx;
+}
+.addAddressBox .itemBox .txtWidth{
+  width: 140rpx;
+}
+.addAddressBox .itemBox .itemInp{
+  width: 450rpx;
+  box-sizing: border-box;
+  font-weight:400;
+  color:#333;
+  margin-left: 54rpx;
+}
+.addAddressBox .itemBox .itemBoxPhone{
+  width:240rpx;
+  font-weight:400;
+  box-sizing: border-box;
+  background: #fff;
+}
+.addAddressBox .itemBox .itemBoxPhone button{
+  border: none;
+  box-sizing: border-box;
+  background: #fff;
+  font-weight:400;
+  text-decoration:underline;
+  color:rgba(53,114,195,1);
+  text-align: left
+}
+.addDefault{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  font-weight:400;
+  font-size: 22rpx;
+}
+.addDefault .addDefaultIcon{
+  width: 24rpx;
+  height: 24rpx;
+  box-sizing: border-box;
+  border: 1rpx solid #f2f3f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  margin-right: 15rpx;
+}
+.addBtn{
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin-top: 30rpx;
+}
+.addBtnBox{
+  width:100%;
+  height:64rpx;
+  background:rgba(255,95,0,1);
+  border-radius:32rpx 32rpx 32rpx 0px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:30rpx;
+  font-family:PingFang SC;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+}

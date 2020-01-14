@@ -1,0 +1,98 @@
+<!--pages/immediatePayment/immediatePayment.wxml-->
+<!-- 立即支付 -->
+<view class="immediatePayment">
+ <view class="immediatePaymentBox">
+  <!-- 订单信息 -->
+  <view class="paymenMsg">
+   <!-- 展会信息 -->
+   <view class="paymenMsgBox">
+    <view class="title"><text>展会信息</text></view>
+    <view class="paymenMsgBoxs">
+     <view class="item">
+      <view class="itemL"><text>展会名称</text></view>
+      <view class="itemR"><text>{{datas.exhibition_info.exhibition_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>预订展区</text></view>
+      <view class="itemR"><text>{{datas.exhibition_info.area_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>展位面积</text></view>
+      <view class="itemR"><text>{{datas.exhibition_info.acreage_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>开口数量：</text></view>
+      <view class="itemR"><text>{{datas.exhibition_info.open_num}}</text></view>
+     </view>
+    </view>
+   </view>
+   <!-- 公司信息 -->
+   <view class="paymenMsgBox">
+    <view class="title"><text>公司信息</text></view>
+    <view class="paymenMsgBoxs">
+     <view class="item">
+      <view class="itemL"><text>公司名称</text></view>
+      <view class="itemR"><text>{{datas.company_info.company_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>姓名</text></view>
+      <view class="itemR"><text>{{datas.company_info.full_name}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>联系方式</text></view>
+      <view class="itemR"><text>{{datas.company_info.mobile_number}}</text></view>
+     </view>
+    </view>
+   </view>
+   <!-- 附加信息 -->
+   <view class="paymenMsgBox">
+    <view class="title"><text>附加信息</text></view>
+    <view class="paymenMsgBoxs">
+     <view class="item">
+      <view class="itemL"><text>签证办理：</text></view>
+      <view class="itemR">
+        <text wx:if="{{datas.add_info.is_visa}}">是</text>
+        <text wx:if="{{!datas.add_info.is_visa}}">否</text>
+      </view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>是否增租：</text></view>
+      <view class="itemR">
+        <text wx:if="{{datas.add_info.is_relet}}">是</text>
+        <text wx:if="{{!datas.add_info.is_relet}}">否</text>
+      </view>
+     </view>
+    </view>
+   </view>
+   <!-- 预订信息 -->
+   <view class="paymenMsgBox">
+    <view class="title"><text>预订信息</text></view>
+    <view class="paymenMsgBoxs">
+     <view class="item">
+      <view class="itemL"><text>预订编号</text></view>
+      <view class="itemR"><text>{{datas.orderinfo.order_sn}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>预订时间</text></view>
+      <view class="itemR"><text>{{datas.orderinfo.add_datetime}}</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>预订金额</text></view>
+      <view class="itemR"><text>{{datas.orderinfo.order_amount}}元</text></view>
+     </view>
+     <view class="item">
+      <view class="itemL"><text>口令优惠</text></view>
+      <view class="itemR">
+        <text> <text wx:if="{{datas.orderinfo.order_discount!=0}}">-</text>{{datas.orderinfo.order_discount}}元</text>
+      </view>
+     </view>
+    </view>
+   </view>
+  </view>
+  <!-- footer -->
+  <view class="paymenFooter">
+   <view class="paymenFooterL"><text>金额： <text class="paymenFooterLColor">¥ {{datas.orderinfo.payment_amount}} 元</text> </text></view>
+   <view class="paymenFooterR" bindtap="pay"><text>立即支付</text></view>
+  </view>
+ </view>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/paySuccess/paySuccess.wxml-->
+<!-- 支付成功 -->
+<view class="pay">
+ <view class="payBox">
+  <view class="payBoxIcon"><icon type="success" size="120"></icon></view>
+  <view class="payBoxTxt"><text>您的展位已预订成功！</text></view>
+  <view class="payBoxBtn" bindtap="goUrl" wx:if="{{types == 1}}"><text>开始挑选位置</text><image src="../../img/index/right.png"></image></view>
+  <view class="payBoxBtn" bindtap="managementExh" wx:if="{{types == 2}}"><text>管理我的展位</text><image src="../../img/index/right.png"></image></view>
+ </view>
+</view>

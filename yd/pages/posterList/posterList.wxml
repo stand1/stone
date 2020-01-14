@@ -1,0 +1,9 @@
+<!--pages/posterList/posterList.wxml-->
+<!-- 推广海报集 -->
+<view class='posterList'>
+  <swiper previous-margin='50px' next-margin='50px' bindchange="swiperChange">
+　　<swiper-item wx:for='{{imgList}}' wx:key='index'>
+　　　　<image class='le-img {{nowIdx==index?"le-active":""}}' src='{{item}}' show-menu-by-longpress="true"></image>
+　　</swiper-item>
+</swiper>
+</view>

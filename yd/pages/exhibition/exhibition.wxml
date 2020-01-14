@@ -1,0 +1,58 @@
+<!--pages/exhibition/exhibition.wxml-->
+<view class="exhibitionBox">
+  <!-- 没有展位数据 -->
+  <view class="exhibitionNodata" wx:if="{{noData}}">
+    <view class="exhibitionNodataMian">
+      <view class="nodataImg"><image src="../../img/exh/noData.png"></image></view>
+      <view class="nodataTxt"><text>空空如也</text></view>
+      <view class="nodataYd" bindtap="goIndex">
+        <text class="txtColors">开始预订</text>
+        <image src="../../img/index/right.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 展位列表 -->
+  <view class="exhBox">
+    <view class="exhBoxNav">
+      <view class="itemNav {{types==0?'itemNavActive':''}}" data-type="0" bindtap="changeNav"><text>全部</text></view>
+      <view class="itemNav {{types==1?'itemNavActive':''}}" data-type="1" bindtap="changeNav"><text>待支付</text></view>
+      <view class="itemNav {{types==2?'itemNavActive':''}}" data-type="2" bindtap="changeNav"><text>预订成功</text></view>
+      <view class="itemNav {{types==3?'itemNavActive':''}}" data-type="3" bindtap="changeNav"><text>展位锁定</text></view>
+      <view class="itemNav {{types==4?'itemNavActive':''}}" data-type="4" bindtap="changeNav"><text>退款</text></view>
+      <view class="itemNav {{types==5?'itemNavActive':''}}" data-type="5" bindtap="changeNav"><text>已失效</text></view>
+    </view>
+    <!-- 展位列表主体 -->
+    <view class="exhBoxMian">
+      <view class="exhBoxItem" wx:for="{{dataList}}" wx:key="index" data-code="{{item.order_sn}}" bindtap="checkDetails"> 
+        <view class="exhBoxItemL" wx:if="{{item.order_status == 0}}"></view>
+        <view class="exhBoxItemL exhBoxItemLYddx" wx:elif="{{item.order_status == 1}}"></view>
+        <view class="exhBoxItemL exhBoxItemLYdcg" wx:elif="{{item.order_status == 2}}"></view>
+        <view class="exhBoxItemL exhBoxItemLZwsd" wx:elif="{{item.order_status == 3}}"></view>
+        <view class="exhBoxItemL exhBoxItemLTkz" wx:elif="{{item.order_status == 4}}"></view>
+        <view class="exhBoxItemL exhBoxItemLYtk" wx:elif="{{item.order_status == 5}}"></view>
+        <view class="exhBoxItemL exhBoxItemLcancer" wx:elif="{{item.order_status == 6}}"></view>
+        <view class="exhBoxItemR">
+          <view class="exhBoxItemRT">
+            <view>
+              <view><text>{{item.add_datetime}}</text><text class="exhBoxItemRTYs" wx:if="{{item.order_type == 2}}">预售</text></view>
+              <view class="exhBoxItemRTcolor">
+                <text>{{item.exhibition_name}}</text>
+              </view>
+            </view>
+            <view class="exhBoxItemRTL" wx:if="{{item.order_status == 0}}"><text>待支付</text></view>
+            <view class="exhBoxItemRTL exhBoxItemRTLYddx" wx:elif="{{item.order_status == 1}}"><text>待选展位</text></view>
+            <view class="exhBoxItemRTL exhBoxItemRTLYdcg" wx:elif="{{item.order_status == 2}}"><text>预订成功</text></view>
+            <view class="exhBoxItemRTL exhBoxItemRTLZwsd" wx:elif="{{item.order_status == 3}}"><text>展位锁定</text></view>
+            <view class="exhBoxItemRTL exhBoxItemRTLTkz" wx:elif="{{item.order_status == 4}}"><text>退款中</text></view>
+            <view class="exhBoxItemRTL exhBoxItemRTLYtk" wx:elif="{{item.order_status == 5}}"><text>退款成功</text></view>
+            <view class="exhBoxItemRTL exhBoxItemRTLcancer" wx:elif="{{item.order_status == 6}}"><text>已取消</text></view>
+          </view>
+          <view class="exhBoxItemRB">
+            <view class="exhBoxItemRBs"><text>展位面积</text><text class="exhBoxItemRBscolor">{{item.acreage_name}}</text></view>
+            <view class="exhBoxItemRBs"><text>{{item.area_name}}</text><text class="exhBoxItemRBscolor">{{item.order_booth}}</text></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

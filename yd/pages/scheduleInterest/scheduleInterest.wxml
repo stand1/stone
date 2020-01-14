@@ -1,0 +1,30 @@
+<!--pages/scheduleInterest/scheduleInterest.wxml-->
+<!-- 收支明细 -->
+<view class="scheduleInterestBox">
+  <view class="scheduleInterest">
+    <!-- nav -->
+    <view class="nav">
+       <view class="navItem" data-nav="0" bindtap="changeNav"><text class="{{navNum==0?'navItemActive':''}}">全部</text></view>
+       <view class="navItem" data-nav="1" bindtap="changeNav"><text class="{{navNum==1?'navItemActive':''}}">收入</text></view>
+       <view class="navItem" data-nav="2" bindtap="changeNav"><text class="{{navNum==2?'navItemActive':''}}">支出</text></view>
+    </view>
+    <!-- mian -->
+    <view class="mian">
+      <view class="mianItem" wx:for="{{dataList}}" wx:key="index">
+        <view class="mianItemL">
+          <text class="mianItemLColor">{{item.remark}}</text>
+          <text>{{item.add_datetime}}</text>
+        </view>
+        <view class="mianItemR">
+          <view wx:if="{{navNum == 0}}" style="display: flex;">
+            <text wx:if="{{item.wallet_money && item.wallet_type == 1}}">+</text>
+            <text wx:if="{{item.wallet_money && item.wallet_type == 2}}">-</text>
+            {{item.wallet_money}}
+          </view>
+          <text class="mianItemRA" wx:if="{{navNum == 1}}"><text wx:if="{{item.wallet_money}}">+</text>{{item.wallet_money}}</text>
+          <text class="mianItemRB" wx:if="{{navNum == 2}}"><text wx:if="{{item.wallet_money}}">-</text>{{item.wallet_money}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "wux-popup": "../../dist/popup/index"
+  },
+  "navigationBarTitleText": "预订展位"
+}

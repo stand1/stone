@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/exhibition/exhibition",
+    "pages/personal/personal",
+    "pages/exhibitionDetails/exhibitionDetails",
+    "pages/success/success",
+    "pages/submitOrders/submitOrders",
+    "pages/description/description",
+    "pages/orderDetails/orderDetails",
+    "pages/immediatePayment/immediatePayment",
+    "pages/paySuccess/paySuccess",
+    "pages/commonInfo/commonInfo",
+    "pages/addAddress/addAddress",
+    "pages/service/service",
+    "pages/seting/seting",
+    "pages/checkLocation/checkLocation",
+    "pages/selectExh/selectExh",
+    "pages/invitation/invitation",
+    "pages/promotionRules/promotionRules",
+    "pages/withdraw/withdraw",
+    "pages/scheduleInterest/scheduleInterest",
+    "pages/troubleShoot/troubleShoot",
+    "pages/looseChange/looseChange",
+    "pages/depositing/depositing",
+    "pages/companion/companion",
+    "pages/referrals/referrals",
+    "pages/sharePosters/sharePosters",
+    "pages/posterList/posterList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#181B22",
+    "navigationBarTitleText": "亚东国际海外展会在线预订",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#B3B3B3",
+    "selectedColor": "#4986FB",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "img/nav/indexA.png",
+        "iconPath": "img/nav/indexB.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "img/nav/exhibitionA.png",
+        "iconPath": "img/nav/exhibitionB.png",
+        "pagePath": "pages/exhibition/exhibition",
+        "text": "展位"
+      },
+      {
+        "selectedIconPath": "img/nav/personalA.png",
+        "iconPath": "img/nav/personalB.png",
+        "pagePath": "pages/personal/personal",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

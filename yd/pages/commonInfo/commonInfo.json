@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "wux-swipe-action-group": "../../dist/swipe-action-group/index",
+    "wux-swipe-action": "../../dist/swipe-action/index",
+    "wux-cell-group": "../../dist/cell-group/index"
+  },
+  "navigationBarTitleText": "常用信息"
+}

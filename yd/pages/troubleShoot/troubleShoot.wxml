@@ -1,0 +1,22 @@
+<!--pages/troubleShoot/troubleShoot.wxml-->
+<!-- 疑难解答 -->
+<view class="troubleShootingBox">
+   <view class="troubleShooting">
+      <view class="item">
+         <view class="title">
+           <text>Q：提现一般多久能够到账？</text>
+         </view>
+         <view>
+           <text>A：零钱提现为实时到账、提现成功后、可在微信“个人中心-支付-钱包”进行查看；银行卡提现主要通过银行卡转账、到账时间为1个工作日、可留意银卡号到账信息。</text>
+         </view>
+      </view>
+      <view class="item">
+         <view class="title">
+           <text>Q：锁定展位成功后、多长时间能在账户中查看？</text>
+         </view>
+         <view>
+           <text>A：锁定展位成功后、将在3个工作日内将推广奖励金打入您的账户余额、请注意留意到账信息。</text>
+         </view>
+      </view>
+   </view>
+</view>
